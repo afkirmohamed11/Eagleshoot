@@ -25,12 +25,12 @@ const Portfolio: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       title: 'Elegant Wedding',
     },
-    // {
-    //   id: 2,
-    //   category: 'portrait',
-    //   image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80',
-    //   title: 'Professional Portrait',
-    // },
+    {
+      id: 2,
+      category: 'portrait',
+      image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      title: 'Professional Portrait',
+    },
     {
       id: 3,
       category: 'event',
