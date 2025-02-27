@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #e63946;
+  --secondary: #1d3557;
+  --accent: #f1faee;
+  --text: #1d3557;
+  --background: #f1faee;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(to right, rgba(29, 53, 87, 0.8), rgba(230, 57, 70, 0.8));
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.logo-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.logo-3d img {
+  transition: transform 0.5s ease;
+}
+
+.logo-3d:hover img {
+  transform: rotateY(15deg) rotateX(5deg);
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item img {
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(241, 250, 238, 0.8);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#e63946] text-white px-6 py-3 rounded-md font-medium hover:bg-[#c1121f] transition-colors duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#1d3557] text-white px-6 py-3 rounded-md font-medium hover:bg-[#142536] transition-colors duration-300;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-8 text-[#1d3557];
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-[#457b9d] mb-12 max-w-3xl mx-auto;
+  }
+}
