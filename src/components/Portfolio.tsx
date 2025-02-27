@@ -25,12 +25,12 @@ const Portfolio: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       title: 'Elegant Wedding',
     },
-    {
-      id: 2,
-      category: 'portrait',
-      image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80',
-      title: 'Professional Portrait',
-    },
+    // {
+    //   id: 2,
+    //   category: 'portrait',
+    //   image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80',
+    //   title: 'Professional Portrait',
+    // },
     {
       id: 3,
       category: 'event',
@@ -49,12 +49,12 @@ const Portfolio: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       title: 'Beach Wedding',
     },
-    {
-      id: 6,
-      category: 'portrait',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80',
-      title: 'Natural Light Portrait',
-    },
+    // {
+    //   id: 6,
+    //   category: 'portrait',
+    //   image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80',
+    //   title: 'Natural Light Portrait',
+    // },
     {
       id: 7,
       category: 'event',
