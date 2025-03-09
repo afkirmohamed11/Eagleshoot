@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center relative">
         <a href="#home" className="flex items-center gap-2">
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
-          <span className="text-red-500 font-serif font-bold text-2xl">Eagle Shot</span>
+          <span className="text-red-500 font-serif font-bold text-2xl">Eagle Shoot</span>
         </a>
 
         {/* Desktop Navigation */}
