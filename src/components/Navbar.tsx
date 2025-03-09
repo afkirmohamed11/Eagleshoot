@@ -15,8 +15,19 @@ const Navbar: React.FC = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    
+    // Control body overflow when menu is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'visible';
+    }
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'visible';
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -31,51 +42,50 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="w-full">
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'} bg-gray-900`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <a href="#home" className="flex items-center gap-2 text-blue-400 font-bold text-3xl">
-            AFKIR Mohamed
-          </a>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-md' : 'py-4'} bg-white`}>
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <a href="#home" className="flex items-center gap-2 text-primary font-serif font-bold text-2xl">
+          <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
+          Eagle Shot
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-secondary hover:text-primary font-medium transition-colors duration-300"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Navigation Toggle Button */}
+        <button className="md:hidden text-secondary" onClick={toggleMenu} aria-label="Toggle menu">
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-lg fixed top-[calc(4rem-1px)] left-0 w-full h-screen overflow-y-auto">
+          <div className="container mx-auto px-4 flex flex-col space-y-4 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-blue-400 font-medium transition-colors duration-300"
+                className="text-secondary hover:text-primary font-medium transition-colors duration-300 py-2 text-lg"
+                onClick={toggleMenu}
               >
                 {link.name}
               </a>
             ))}
           </div>
-
-          {/* Mobile Navigation Toggle Button */}
-          <button className="md:hidden text-white p-2 rounded-lg bg-gray-700" onClick={toggleMenu} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-
-        {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="md:hidden bg-gray-800 w-full overflow-hidden">
-            <div className="flex flex-col w-full">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-white hover:text-blue-400 font-medium transition-colors duration-300 py-3 px-4 border-b border-gray-700"
-                  onClick={toggleMenu}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
+      )}
+    </nav>
   );
 };
 
