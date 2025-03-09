@@ -50,9 +50,9 @@ const Navbar: React.FC = () => {
           ))} 
         </div> 
 
-        {/* Mobile Navigation Toggle */}
+        {/* Mobile Navigation Toggle Button (Hamburger) */}
         <button className="md:hidden text-secondary" onClick={toggleMenu}> 
-          {isOpen ? <X size={24} /> : <Menu size={24} />} 
+          {isOpen ? <X size={24} /> : <Menu size={24} />} {/* Hamburger Icon or Close Icon */}
         </button> 
       </div> 
 
