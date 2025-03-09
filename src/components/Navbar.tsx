@@ -62,30 +62,32 @@ const Navbar: React.FC = () => {
           ))}
         </div>
         
-        {/* Hamburger Menu Button that transforms to X */}
+        {/* Toggle Button with Increased Hit Area */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none relative"
+          className="md:hidden w-10 h-10 flex justify-center items-center focus:outline-none"
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          {isOpen ? (
-            <>
-              {/* X icon when menu is open */}
-              <span className="absolute block w-6 h-0.5 bg-black transform rotate-45"></span>
-              <span className="absolute block w-6 h-0.5 bg-black transform -rotate-45"></span>
-            </>
-          ) : (
-            <>
-              {/* Hamburger icon when menu is closed */}
-              <span className="block w-6 h-0.5 bg-black"></span>
-              <span className="block w-6 h-0.5 bg-black"></span>
-              <span className="block w-6 h-0.5 bg-black"></span>
-            </>
-          )}
+          <div className="relative w-6 h-6">
+            {isOpen ? (
+              <>
+                {/* X icon */}
+                <span className="absolute top-1/2 left-0 w-6 h-0.5 bg-black transform -translate-y-1/2 rotate-45"></span>
+                <span className="absolute top-1/2 left-0 w-6 h-0.5 bg-black transform -translate-y-1/2 -rotate-45"></span>
+              </>
+            ) : (
+              <>
+                {/* Hamburger icon */}
+                <span className="absolute top-1/4 left-0 w-6 h-0.5 bg-black transform -translate-y-1/2"></span>
+                <span className="absolute top-1/2 left-0 w-6 h-0.5 bg-black transform -translate-y-1/2"></span>
+                <span className="absolute top-3/4 left-0 w-6 h-0.5 bg-black transform -translate-y-1/2"></span>
+              </>
+            )}
+          </div>
         </button>
       </div>
       
-      {/* Full-width Mobile Menu Dropdown */}
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div
           ref={menuRef}
