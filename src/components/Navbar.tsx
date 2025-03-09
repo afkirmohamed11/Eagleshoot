@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,8 +14,19 @@ const Navbar: React.FC = () => {
       }
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -31,7 +43,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 bg-white shadow-md' : 'py-4 bg-white'}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center relative">
         <a href="#home" className="flex items-center gap-2">
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
           <span className="text-red-500 font-serif font-bold text-2xl">Eagle Shot</span>
@@ -60,26 +72,27 @@ const Navbar: React.FC = () => {
           <span className="block w-6 h-0.5 bg-navy-blue"></span>
           <span className="block w-6 h-0.5 bg-navy-blue"></span>
         </button>
-      </div>
 
-      {/* Mobile Navigation Menu - Slide down without right wall */}
-      <div 
-        className={`md:hidden absolute top-full left-0 right-0 bg-white transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96' : 'max-h-0'
-        }`}
-      >
-        <div className="container mx-auto px-4 py-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="block py-3 text-gray-700 hover:text-red-500 font-medium transition-colors duration-300"
-              onClick={toggleMenu}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
+        {/* Inline Mobile Menu Dropdown */}
+        {isOpen && (
+          <div 
+            ref={menuRef}
+            className="absolute top-full right-4 mt-2 w-48 bg-white rounded-lg shadow-lg md:hidden z-50 overflow-hidden"
+          >
+            <div className="py-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors duration-200"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
