@@ -1,23 +1,84 @@
 import React, { useState } from 'react';  
 import { motion } from 'framer-motion';  
 import { useInView } from 'react-intersection-observer';  
-import { Users, Heart, Building, User, Camera, Calendar } from 'lucide-react';  
+import { 
+  Users, 
+  Heart, 
+  Building, 
+  User, 
+  Camera, 
+  Calendar, 
+  Scissors, 
+  Globe, 
+  Share2, 
+  ShoppingBag 
+} from 'lucide-react';  
   
 const Services: React.FC = () => {  
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });  
   const [showAll, setShowAll] = useState(false);
   
   const services = [  
-    { icon: <Heart className="w-12 h-12 text-primary mb-4" />, title: 'Wedding Photography', description: 'Capture your special day...', features: ['Full day coverage', 'Edited digital photos', 'Wedding album', 'Engagement session'] },  
-    { icon: <Users className="w-12 h-12 text-primary mb-4" />, title: 'Family Portraits', description: 'Beautiful family portraits...', features: ['1-hour session', '20 edited photos', 'Digital delivery', 'Print options available'] },  
-    { icon: <Building className="w-12 h-12 text-primary mb-4" />, title: 'Commercial Photography', description: 'Professional product photography...', features: ['Product photography', 'Brand imagery', 'Commercial license', 'Quick turnaround'] },  
-    { icon: <Calendar className="w-12 h-12 text-primary mb-4" />, title: 'Event Coverage', description: 'Comprehensive coverage...', features: ['Full event coverage', 'Quick previews', 'Professional editing', 'Online gallery'] },  
-    { icon: <User className="w-12 h-12 text-primary mb-4" />, title: 'Portrait Session', description: 'Professional portrait sessions...', features: ['45-minute session', '10 edited photos', 'Digital delivery', '1 outfit change'] },  
-    { icon: <Building className="w-12 h-12 text-primary mb-4" />, title: 'Website Creation', description: 'Custom websites tailored...', features: ['Responsive design', 'SEO optimization', 'CMS', 'E-commerce integration'] },     
-    { icon: <Camera className="w-12 h-12 text-primary mb-4" />, title: 'Basic Photo Shoot', description: 'Perfect for social media...', features: ['30-minute session', '5 edited photos', 'Digital delivery', 'Single location'] },  
-    { icon: <Camera className="w-12 h-12 text-primary mb-4" />, title: 'Photo & Video Editing', description: 'Professional editing services...', features: ['High-quality retouching', 'Video editing', 'Color correction', 'Custom edits'] },  
-    { icon: <Users className="w-12 h-12 text-primary mb-4" />, title: 'Social Media Management', description: 'Boost your social presence...', features: ['Content creation', 'Regular posting', 'Engagement tracking', 'Ad campaign management'] },  
-    { icon: <Building className="w-12 h-12 text-primary mb-4" />, title: 'Selling Photography Equipment', description: 'We provide quality gear...', features: ['Cameras', 'Lenses', 'Lighting equipment', 'Tripods and more'] }  
+    { 
+      icon: <Heart className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Wedding Photography', 
+      description: 'Capture your special day with timeless, emotional photography that tells your unique love story.', 
+      features: ['Full day coverage', 'Edited digital photos', 'Wedding album', 'Engagement session'] 
+    },  
+    { 
+      icon: <Users className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Family Portraits', 
+      description: 'Beautiful family portraits that capture genuine connections and create lasting memories.', 
+      features: ['1-hour session', '20 edited photos', 'Digital delivery', 'Print options available'] 
+    },  
+    { 
+      icon: <Building className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Commercial Photography', 
+      description: 'Professional product photography to showcase your business with polished, eye-catching visuals.', 
+      features: ['Product photography', 'Brand imagery', 'Commercial license', 'Quick turnaround'] 
+    },  
+    { 
+      icon: <Calendar className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Event Coverage', 
+      description: 'Comprehensive coverage of your special events, capturing every important moment and emotion.', 
+      features: ['Full event coverage', 'Quick previews', 'Professional editing', 'Online gallery'] 
+    },  
+    { 
+      icon: <User className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Portrait Session', 
+      description: 'Professional portrait sessions that highlight your personality and create stunning visual keepsakes.', 
+      features: ['45-minute session', '10 edited photos', 'Digital delivery', '1 outfit change'] 
+    },  
+    { 
+      icon: <Globe className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Website Creation', 
+      description: 'Custom websites tailored to showcase your work or business with modern, responsive design.', 
+      features: ['Responsive design', 'SEO optimization', 'CMS', 'E-commerce integration'] 
+    },     
+    { 
+      icon: <Camera className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Basic Photo Shoot', 
+      description: 'Perfect for social media content and quick professional photos for personal or business use.', 
+      features: ['30-minute session', '5 edited photos', 'Digital delivery', 'Single location'] 
+    },  
+    { 
+      icon: <Scissors className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Photo & Video Editing', 
+      description: 'Professional editing services to transform your raw footage into polished, stunning visuals.', 
+      features: ['High-quality retouching', 'Video editing', 'Color correction', 'Custom edits'] 
+    },  
+    { 
+      icon: <Share2 className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Social Media Management', 
+      description: 'Boost your social presence with strategic content creation and engagement management.', 
+      features: ['Content creation', 'Regular posting', 'Engagement tracking', 'Ad campaign management'] 
+    },  
+    { 
+      icon: <ShoppingBag className="w-12 h-12 text-primary mb-4" />, 
+      title: 'Selling Photography Equipment', 
+      description: 'We provide quality photography gear and accessories at competitive prices for professionals and enthusiasts.', 
+      features: ['Cameras', 'Lenses', 'Lighting equipment', 'Tripods and more'] 
+    }  
   ];  
   
   const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };  
@@ -27,7 +88,7 @@ const Services: React.FC = () => {
     <section id="services" className="py-20 bg-gray-50">  
       <div className="container mx-auto px-4 text-center">  
         <h2 className="section-title">Our Services</h2>  
-        <p className="section-subtitle mb-16">We offer a wide range of photography services...</p>  
+        <p className="section-subtitle mb-16">We offer a wide range of photography services to meet your creative and business needs.</p>  
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={ref} variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>  
           {(showAll ? services : services.slice(0, 6)).map((service, index) => (  
             <motion.div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden service-card" variants={itemVariants}>  
