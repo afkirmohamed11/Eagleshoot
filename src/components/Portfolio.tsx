@@ -26,9 +26,9 @@ const Portfolio: React.FC = () => {
       title: 'Elegant Wedding',
     },
     {
-      id: 2,
+      id: 10,
       category: 'portrait',
-      image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      image: '/portrait1.jpg',
       title: 'Professional Portrait',
     },
     {
@@ -43,30 +43,50 @@ const Portfolio: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       title: 'Product Photography',
     },
-    // {
-    //   id: 5,
-    //   category: 'wedding',
-    //   image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    //   title: 'Beach Wedding',
-    // },
-    // {
-    //   id: 6,
-    //   category: 'portrait',
-    //   image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80',
-    //   title: 'Natural Light Portrait',
-    // },
     {
       id: 7,
       category: 'event',
       image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80',
       title: 'Music Concert',
     },
+    // {
+    //   id: 8,
+    //   category: 'commercial',
+    //   image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    //   title: 'Product Showcase',
+    // },
     {
-      id: 8,
-      category: 'commercial',
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      title: 'Product Showcase',
+      id: 9,
+      category: 'portrait',
+      image: '/portrait2.jpg',
+      title: 'Professional Portrait',
     },
+    {
+      id: 2,
+      category: 'portrait',
+      image: '/portrait3.jpg',
+      title: 'Professional Portrait',
+    },
+    {
+    id: 11,
+    category: 'commercial',
+    image: '/food1.jpg',
+    title: 'Product Photography',
+  },
+  ,
+    {
+    id: 12,
+    category: 'commercial',
+    image: '/food2.jpg',
+    title: 'Product Photography',
+  },
+    {
+    id: 13,
+    category: 'commercial',
+    image: '/food3.jpg',
+    title: 'Product Photography',
+  }
+    
   ];
 
   const filteredItems = activeCategory === 'all' 

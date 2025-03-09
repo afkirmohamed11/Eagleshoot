@@ -9,205 +9,141 @@ const Contact: React.FC = () => {
     threshold: 0.1,
   });
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real application, you would handle form submission here
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: '',
-    });
-  };
-
-  const contactInfo = [
-    {
-      icon: <Phone className="w-6 h-6 text-primary" />,
-      title: 'Phone',
-      details: '+212 60-5921443',
-    },
-    {
-      icon: <Mail className="w-6 h-6 text-primary" />,
-      title: 'Email',
-      details: 'eagleshot.photographer@gmail.com',
-    },
-    {
-      icon: (
-        <a href="https://maps.app.goo.gl/LNsXcZPbs8j9azEfA" target="_blank" className="text-white hover:text-primary transition-colors duration-300">
-          <MapPin className="w-6 h-6 text-primary" />
-        </a>
-      ),
-      title: 'Address',
-      details: 'Imzouren, Al Hoceima',
-    },
-  ];
-
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Contact Us</h2>
-          <p className="section-subtitle">
+          <h2 className="text-4xl font-bold text-secondary font-serif mb-4">Contact Us</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Ready to capture your special moments? Get in touch with us today to discuss your photography needs
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
           <motion.div 
             className="lg:w-1/2"
             ref={ref}
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">Get In Touch</h3>
             <p className="text-gray-600 mb-8">
-              We'd love to hear from you! Fill out the form and our team will get back to you as soon as possible to discuss your photography needs and how we can help bring your vision to life.
+              We'd love to hear from you! Our team will get back to you as soon as possible to discuss your photography needs and how we can help bring your vision to life.
             </p>
 
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="p-3 bg-white rounded-full shadow-md">{item.icon}</div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-secondary">{item.title}</h4>
-                    <p className="text-gray-600">{item.details}</p>
-                  </div>
+            <div className="space-y-8">
+              <a 
+                href="tel:+212605921443" 
+                className="flex items-center gap-6 group cursor-pointer"
+                aria-label="Call us"
+              >
+                <div className="p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <Phone className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
                 </div>
-              ))}
+                <div>
+                  <h4 className="text-xl font-semibold text-secondary">Phone</h4>
+                  <p className="text-gray-600 text-lg">+212 60-5921443</p>
+                </div>
+              </a>
+              
+              <a 
+                href="mailto:eagleshot.photographer@gmail.com" 
+                className="flex items-center gap-6 group cursor-pointer"
+                aria-label="Email us"
+              >
+                <div className="p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <Mail className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-secondary">Email</h4>
+                  <p className="text-gray-600 text-lg">eagleshot.photographer@gmail.com</p>
+                </div>
+              </a>
+              
+              <a 
+                href="https://maps.app.goo.gl/LNsXcZPbs8j9azEfA" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-6 group cursor-pointer"
+                aria-label="View our location"
+              >
+                <div className="p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <MapPin className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-secondary">Address</h4>
+                  <p className="text-gray-600 text-lg">Imzouren, Al Hoceima</p>
+                </div>
+              </a>
             </div>
 
-            <div className="mt-10">
-              <h4 className="text-xl font-semibold mb-4 text-secondary">Follow Us</h4>
+            <div className="mt-12">
+              <h4 className="text-xl font-semibold mb-6 text-secondary">Follow Us</h4>
               <div className="flex gap-4">
-                <a href="https://web.facebook.com/profile.php?id=100068582700441&locale=fr_FR" className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300">
+                <a 
+                  href="https://web.facebook.com/profile.php?id=100068582700441&locale=fr_FR" 
+                  className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                  aria-label="Facebook"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
-                <a href="https://www.instagram.com/eagleshot_photographer/" className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300">
+                <a 
+                  href="https://www.instagram.com/eagleshot_photographer/" 
+                  className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                  aria-label="Instagram"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-                <a href="#" className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                  </svg>
-                </a>
               </div>
             </div>
           </motion.div>
 
-          <motion.div 
-            className="lg:w-1/2"
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="bg-white rounded-lg shadow-xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-secondary font-serif">Send Us a Message</h3>
+          <motion.div  
+            className="lg:w-1/2 flex flex-col justify-center" 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} 
+            transition={{ duration: 0.6, delay: 0.2 }} 
+          > 
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold mb-6 text-secondary font-serif">Contact Us Directly</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Your email"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                      placeholder="Your phone number"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="wedding">Wedding Photography</option>
-                    <option value="portrait">Portrait Photography</option>
-                    <option value="event">Event Photography</option>
-                    <option value="commercial">Commercial Photography</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-md transition-colors duration-300 flex items-center justify-center gap-2"
-                >
-                  <Send size={18} />
-                  Send Message
-                </button>
-              </form>
+              <p className="text-gray-600 mb-8">
+                Prefer a quick conversation? Reach out to us on WhatsApp for immediate assistance with your photography needs.
+              </p>
+              
+              <a 
+                href="https://wa.me/212605921443" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-green-600 transition duration-300 w-full"
+              > 
+                <Send className="w-6 h-6" /> Chat with us on WhatsApp 
+              </a>
+              
+              <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
+                <h4 className="text-lg font-semibold mb-3 text-secondary">Working Hours</h4>
+                <ul className="space-y-2 text-gray-600">
+                  <li className="flex justify-between">
+                    <span>Monday - Friday:</span>
+                    <span>9:00 AM - 6:00 PM</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Saturday:</span>
+                    <span>10:00 AM - 4:00 PM</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Sunday:</span>
+                    <span>Closed</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </motion.div>
         </div>

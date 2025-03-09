@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1520390138845-fd2d229dd553?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80" 
+          src="/our_story2.jpg" 
           alt="Photography background" 
           className="w-full h-full object-cover"
         />

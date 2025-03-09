@@ -34,8 +34,7 @@ const Navbar: React.FC = () => {
     <nav className={`navbar fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 shadow-md' : 'py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-2 text-primary font-serif font-bold text-2xl">
-          <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-7 h-7" />
-          {/* <span>Eagle Shoot</span> */}
+        <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />          {/* <span>Eagle Shoot</span> */}
         </a>
 
         {/* Desktop Navigation */}
