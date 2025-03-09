@@ -124,7 +124,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer" 
                 className="flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-green-600 transition duration-300 w-full"
               > 
-                <Send className="w-6 h-6" /> Chat with us on WhatsApp 
+                <Send className="w-6 h-6" /> Contact us via WhatsApp
               </a>
               
               <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
