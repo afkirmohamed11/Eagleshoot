@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-2 bg-white shadow-md' : 'py-4 bg-white'}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center relative">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-2">
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
           <span className="text-red-500 font-serif font-bold text-2xl">Eagle Shoot</span>
@@ -72,28 +72,28 @@ const Navbar: React.FC = () => {
           <span className="block w-6 h-0.5 bg-navy-blue"></span>
           <span className="block w-6 h-0.5 bg-navy-blue"></span>
         </button>
-
-        {/* Inline Mobile Menu Dropdown */}
-        {isOpen && (
-          <div 
-            ref={menuRef}
-            className="absolute top-full right-4 mt-2 w-48 bg-white rounded-lg shadow-lg md:hidden z-50 overflow-hidden"
-          >
-            <div className="py-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Full-width Mobile Menu Dropdown - No sidebar */}
+      {isOpen && (
+        <div 
+          ref={menuRef}
+          className="md:hidden absolute top-full left-0 right-0 bg-red-500 z-50"
+        >
+          <div className="container mx-auto px-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block py-3 text-white hover:bg-red-600 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
