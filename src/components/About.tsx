@@ -60,9 +60,16 @@ const About: React.FC = () => {
  
           <div className="md:w-1/2 w-full"> 
             <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">Our Story</h3> 
-            <p className="text-lg mb-6 text-gray-700"> 
-              Eagle Shoot Photography was founded with a passion for capturing life's most precious moments with the precision and vision of an eagle. Our team of professional photographers brings years of experience and artistic talent to every shoot. 
-            </p> 
+            <p className="text-lg mb-6 text-gray-700">  
+    <strong>Eagle Shoot Photography: Capturing Life’s Beauty with Precision and Artistry</strong>  
+    <br /><br />  
+    Born from a deep love for nature, Eagle Shoot Photography was founded by a visionary from a rural village where beauty surrounds every moment. What began as a passion for capturing breathtaking landscapes has evolved into a distinguished brand recognized for excellence in all types of photography.  
+
+    With the precision and vision of an eagle, our team of professional photographers brings years of experience and artistic talent to every shoot. We specialize in a wide range of photography services, from stunning landscapes and portraits to weddings, events, and commercial photography. Our commitment to quality, creativity, and storytelling ensures that every fleeting moment is transformed into a timeless image.  
+
+    Eagle Shoot Photography is more than just photography—it’s a vision, a journey, and a celebration of life’s beauty. Let us bring an artistic touch to your most precious moments, creating images you’ll treasure for years to come.  
+</p>
+
             <p className="text-lg mb-8 text-gray-700"> 
               We specialize in a wide range of photography services, from weddings and events to portraits and commercial photography. Our goal is to exceed your expectations and deliver stunning images that you'll treasure for years to come. 
             </p> 
