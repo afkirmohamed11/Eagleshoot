@@ -13,8 +13,9 @@ const Store: React.FC = () => {
       image: '/camera.jpg',
       title: t('store.camera.title'),
       description: t('store.camera.desc'),
-      price: t('store.camera.price'),
-      buttonText: t('store.camera.button'),
+      buyPrice: t('store.camera.price'), // Price to buy
+      borrowPrice: t('store.location.price'), // Price to borrow
+      buttonText: t('store.camera.button'), // We'll use this for the combined button (can be changed)
       whatsappLink: 'https://wa.me/212605921443',
     },
   ];
@@ -68,12 +69,21 @@ const Store: React.FC = () => {
                 {/* Product Description */}
                 <p className="text-gray-600 text-center mb-4">{item.description}</p>
 
-                {/* Product Price */}
-                <p className="text-lg font-semibold text-primary mb-6">
-                  {item.price}
-                </p>
+                {/* Prices Container */}
+                <div className="flex justify-center gap-6 mb-6">
+                  {/* Buy Price */}
+                  <div>
+                    <p className="text-sm text-gray-500">{t('store.camera.buyLabel', { defaultValue: 'Buy Price' })}</p>
+                    <p className="text-lg font-semibold text-primary">{item.buyPrice}</p>
+                  </div>
+                  {/* Borrow Price */}
+                  <div>
+                    <p className="text-sm text-gray-500">{t('store.camera.borrowLabel', { defaultValue: 'Borrow Price' })}</p>
+                    <p className="text-lg font-semibold text-primary">{item.borrowPrice}</p>
+                  </div>
+                </div>
 
-                {/* Buy Now Button */}
+                {/* Combined Button */}
                 <a
                   href={item.whatsappLink}
                   target="_blank"

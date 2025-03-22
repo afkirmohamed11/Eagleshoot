@@ -41,7 +41,12 @@ export const translations = {
 'store.camera.title': 'Camera Nikon', 
 'store.camera.desc': 'Camera customized for professional photography', 
 'store.camera.price': '1000 MAD', 
-'store.camera.button': 'Buy Now',
+'store.location.price': '150 MAD',  
+'store.camera.button': 'Buy Now', // Can be changed to 'Get Now' for neutrality
+'store.camera.buyLabel': 'Buy Price',
+'store.camera.borrowLabel': 'Borrow Price',
+'store.camera.getButton': 'Get Now', // Suggested new key for a neutral button label
+
 
     // Services Section 
     'services.title': 'Our Services', 
@@ -262,8 +267,13 @@ export const translations = {
 'store.subtitle': 'Parcourez nos différents produits', 
 'store.camera.title': 'Caméra Nikon', 
 'store.camera.desc': 'Caméra adaptée à la photographie professionnelle', 
-'store.camera.price': '1000 Dirhams', 
+'store.camera.price': '1000 MAD',
+'store.location.price': '150 MAD',
 'store.camera.button': 'Acheter maintenant',
+'store.camera.buyLabel': 'Prix d\'achat',
+'store.camera.borrowLabel': 'Prix de location',
+'store.camera.getButton': 'Obtenir maintenant', 
+
 
     // Portfolio Section
     'portfolio.title': 'Notre Portfolio',
@@ -324,7 +334,12 @@ export const translations = {
     'store.camera.title': ' Nikon كاميرا',
     'store.camera.desc': 'كاميرا معدلة للتصوير الاحترافي',
     'store.camera.price': '1000 درهم',
-    'store.camera.button': 'اشتري الآن',
+    'store.location.price': '150 درهم',
+    'store.camera.button': 'اشتر الآن',
+    'store.camera.buyLabel': 'سعر الشراء',
+    'store.camera.borrowLabel': 'سعر الاستئجار',
+    'store.camera.getButton': 'احصل الآن',
+
     
     // About Section 
     'about.title': 'من نحن', 
