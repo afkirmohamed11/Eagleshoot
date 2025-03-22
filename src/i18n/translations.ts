@@ -5,6 +5,7 @@ export const translations = {
     'nav.about': 'About', 
     'nav.services': 'Services', 
     'nav.portfolio': 'Portfolio', 
+    'nav.store': 'Store',
     'nav.contact': 'Contact', 
  
     // Hero Section 
@@ -34,6 +35,14 @@ export const translations = {
  'footer.services.title': 'Services',
  'footer.contactInfo.title': 'Contact Info',
  'footer.copyright': '© {year} Eagle Shoot Photography. All rights reserved.',
+ // Store Section
+'store.title': 'Our Store', 
+'store.subtitle': 'Browse our different products', 
+'store.camera.title': 'Camera Nikon', 
+'store.camera.desc': 'Camera customized for professional photography', 
+'store.camera.price': '1000 MAD', 
+'store.camera.button': 'Buy Now',
+
     // Services Section 
     'services.title': 'Our Services', 
     'services.subtitle': 'Professional photography services for every occasion', 
@@ -152,6 +161,7 @@ export const translations = {
     'nav.about': 'À Propos', 
     'nav.services': 'Services', 
     'nav.portfolio': 'Portfolio', 
+    'nav.store': 'Boutique',
     'nav.contact': 'Contact', 
  
     // Hero Section 
@@ -248,6 +258,14 @@ export const translations = {
     'services.equipment.features.lenses': 'Objectifs',
     'services.equipment.features.lighting': 'Équipement d\'éclairage',
     'services.equipment.features.tripods': 'Trépieds et plus',
+    // Section Magasin
+'store.title': 'Magasin', 
+'store.subtitle': 'Parcourez nos différents produits', 
+'store.camera.title': 'Caméra Nikon', 
+'store.camera.desc': 'Caméra adaptée à la photographie professionnelle', 
+'store.camera.price': '1000 Dirhams', 
+'store.camera.button': 'Acheter maintenant',
+
     // Portfolio Section
     'portfolio.title': 'Notre Portfolio',
 'portfolio.subtitle': 'Parcourez notre collection de travaux photographiques professionnels mettant en valeur notre expertise et notre créativité',
@@ -293,6 +311,7 @@ export const translations = {
     'nav.about': 'من نحن', 
     'nav.services': 'خدماتنا', 
     'nav.portfolio': 'معرض الأعمال', 
+    'nav.store': 'المتجر',
     'nav.contact': 'اتصل بنا', 
  
     // Hero Section 
@@ -300,7 +319,14 @@ export const translations = {
     'hero.subtitle': 'تجلب Eagle Shoot Photography رؤيتك إلى الحياة من خلال خدمات التصوير الاحترافية المصممة خصيصًا لاحتياجاتك.', 
     'hero.services.button': 'خدماتنا', 
     'hero.contact.button': 'اتصل بنا', 
- 
+    // Store Section
+    'store.title': 'متجرنا',
+    'store.subtitle': 'تصفح منتجاتنا المختلفة',
+    'store.camera.title': ' Nikon كاميرا',
+    'store.camera.desc': 'كاميرا معدلة للتصوير الاحترافي',
+    'store.camera.price': '1000 درهم',
+    'store.camera.button': 'اشتري الآن',
+    
     // About Section 
     'about.title': 'من نحن', 
     'about.subtitle': 'خدمات تصوير احترافية مع الاهتمام بأدق التفاصيل', 

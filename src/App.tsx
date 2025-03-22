@@ -7,6 +7,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact'; 
 import Footer from './components/Footer'; 
 import FloatingButtons from './components/FloatingButtons'; 
+import Store from './components/Store';
 import { LanguageProvider } from './i18n/LanguageContext'; 
  
 function App() { 
@@ -31,6 +32,7 @@ function App() {
         <Hero /> 
         <About /> 
         <Services /> 
+        <Store/>
         <Portfolio /> 
         <Contact /> 
         <Footer /> 
