@@ -1,25 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = ['/our_story2.jpg', '/our_story3.jpg', '/our_story4.jpg'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/our_story2.jpg" 
-          alt="Photography background" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 hero-gradient opacity-80"></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {images.map((image, index) => (
+          <motion.div
+            key={image}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: currentImage === index ? 1 : 0 
+            }}
+            transition={{ duration: 1 }}
+          >
+            <img
+              src={image}
+              alt={`Photography background ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 hero-gradient opacity-80"></div>
+          </motion.div>
+        ))}
       </div>
-      
+     
       <div className="container mx-auto px-4 z-10 py-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <motion.div 
+          <motion.div
             className="md:w-1/2 text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -38,8 +59,8 @@ const Hero: React.FC = () => {
               </a>
             </div>
           </motion.div>
-          
-          <motion.div 
+         
+          <motion.div
             className="md:w-1/2 flex justify-center logo-3d"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
