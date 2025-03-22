@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </a>
                 <a 
-                  href="https://www.instagram.com/eagleshot_photographer/" 
+                  href="https://www.instagram.com/eagleshoot_photographer?igsh=czV0a2Vtc2h2anV5" 
                   className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
                   aria-label="Instagram"
                 >
