@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
+import LanguageSelector from './LanguageSelector';
 
 interface NavbarProps {
   scrolled: boolean;
@@ -7,19 +9,20 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { t } = useLanguage();
+  
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.portfolio'), href: '#portfolio' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
-
+  
   return (
     <nav
       className={`navbar fixed w-full z-50 transition-all duration-300 ${
@@ -35,9 +38,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
           <span>Eagle Shoot</span>
         </a>
-
+        
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -47,14 +50,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               {link.name}
             </a>
           ))}
+          <LanguageSelector />
         </div>
-
+        
         {/* Mobile Navigation Toggle Button (Hamburger) */}
-        <button className="md:hidden text-secondary z-50" onClick={toggleMenu}>
-          {isOpen ? <X size={30} /> : <Menu size={30} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <LanguageSelector />
+          <button className="text-secondary z-50" onClick={toggleMenu}>
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
+        </div>
       </div>
-
+      
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg w-full">

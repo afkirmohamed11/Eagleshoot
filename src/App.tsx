@@ -7,6 +7,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact'; 
 import Footer from './components/Footer'; 
 import FloatingButtons from './components/FloatingButtons'; 
+import { LanguageProvider } from './i18n/LanguageContext'; 
  
 function App() { 
   const [scrolled, setScrolled] = useState(false); 
@@ -24,16 +25,18 @@ function App() {
   }, []); 
  
   return ( 
-    <div className="min-h-screen bg-accent"> 
-      <Navbar scrolled={scrolled} /> 
-      <Hero /> 
-      <About /> 
-      <Services /> 
-      <Portfolio /> 
-      <Contact /> 
-      <Footer /> 
-      <FloatingButtons showScrollTop={showScrollTop} /> 
-    </div> 
+    <LanguageProvider>
+      <div className="min-h-screen bg-accent"> 
+        <Navbar scrolled={scrolled} /> 
+        <Hero /> 
+        <About /> 
+        <Services /> 
+        <Portfolio /> 
+        <Contact /> 
+        <Footer /> 
+        <FloatingButtons showScrollTop={showScrollTop} /> 
+      </div> 
+    </LanguageProvider>
   ); 
 } 
  

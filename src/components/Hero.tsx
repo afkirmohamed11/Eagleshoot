@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0 z-0">
@@ -22,16 +25,16 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">Capture Your Perfect Moments</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">{t('hero.title')}</h1>
             <p className="text-xl mb-8 max-w-lg">
-              Eagle Shoot Photography brings your vision to life with stunning professional photography services tailored to your needs.
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#services" className="btn-primary">
-                Our Services
+                {t('hero.services.button')}
               </a>
               <a href="#contact" className="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-secondary transition-colors duration-300">
-                Contact Us
+                {t('hero.contact.button')}
               </a>
             </div>
           </motion.div>

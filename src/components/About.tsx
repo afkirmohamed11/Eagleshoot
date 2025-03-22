@@ -2,96 +2,101 @@ import React from 'react';
 import { motion } from 'framer-motion'; 
 import { useInView } from 'react-intersection-observer'; 
 import { Camera, Award, Clock, Users } from 'lucide-react'; 
+import { useLanguage } from '../i18n/LanguageContext';
  
 const About: React.FC = () => { 
   const [ref, inView] = useInView({ 
     triggerOnce: true, 
     threshold: 0.1, 
   }); 
+
+  const { t } = useLanguage();
  
   const features = [ 
     { 
       icon: <Camera className="w-10 h-10 text-primary" />, 
-      title: 'Professional Equipment', 
-      description: 'We use top-of-the-line cameras and lenses to ensure the highest quality photos.', 
+      title: t('about.equipment.title'),
+      description: t('about.equipment.desc'),
     }, 
     { 
       icon: <Award className="w-10 h-10 text-primary" />, 
-      title: 'Award-Winning', 
-      description: 'Our work has been recognized for its creativity and technical excellence.', 
+      title: t('about.award.title'),
+      description: t('about.award.desc'),
     }, 
     { 
       icon: <Clock className="w-10 h-10 text-primary" />, 
-      title: 'Timely Delivery', 
-      description: 'We understand the importance of deadlines and always deliver on time.', 
+      title: t('about.delivery.title'),
+      description: t('about.delivery.desc'),
     }, 
     { 
       icon: <Users className="w-10 h-10 text-primary" />, 
-      title: 'Client Focused', 
-      description: 'Your vision and satisfaction are our top priorities throughout the process.', 
+      title: t('about.client.title'),
+      description: t('about.client.desc'),
     }, 
   ]; 
  
   return ( 
-    <section id="about" className="py-20 bg-white"> 
+    <section id="about" className="py-20"> 
       <div className="container mx-auto px-4"> 
         <div className="text-center mb-16"> 
-          <h2 className="section-title">About Eagle Shoot</h2> 
+          <h2 className="section-title">{t('about.title')}</h2> 
           <p className="section-subtitle"> 
-            Capturing life's precious moments with an eagle's precision and artistic vision 
+            {t('about.subtitle')}
           </p> 
         </div> 
  
-        <div className="flex flex-col md:flex-row items-center gap-12"> 
-          <motion.div  
-            className="md:w-1/2 w-full"  // Use full width on small screens
+        <div className="flex flex-col lg:flex-row items-center gap-12 mb-20"> 
+          <motion.div 
+            className="lg:w-1/2" 
             ref={ref} 
             initial={{ opacity: 0, x: -50 }} 
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }} 
             transition={{ duration: 0.8 }} 
           > 
-            <img  
-              src="/our_story.jpg"  
-              alt="Photographer at work"  
-              className="rounded-lg shadow-xl w-full h-auto" 
-              style={{ width: '400px', height: 'auto' }} // Custom width 
+            <img 
+              src="/our_story.jpg" 
+              alt="About Eagle Shoot Photography" 
+              className="rounded-lg shadow-xl" 
             /> 
           </motion.div> 
  
-          <div className="md:w-1/2 w-full"> 
-            <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">Our Story</h3> 
-            <p className="text-lg mb-6 text-gray-700">  
-    <strong>Eagle Shoot Photography: Capturing Life’s Beauty with Precision and Artistry</strong>  
-    <br /><br />  
-    Born from a deep love for nature, Eagle Shoot Photography was founded by a visionary from a rural village where beauty surrounds every moment. What began as a passion for capturing breathtaking landscapes has evolved into a distinguished brand recognized for excellence in all types of photography.  
+          <motion.div 
+            className="lg:w-1/2" 
+            initial={{ opacity: 0, x: 50 }} 
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }} 
+            transition={{ duration: 0.8 }} 
+          > 
+            <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">{t('about.story.title')}</h3>
+            <p className="text-xl font-semibold mb-6 text-primary">
+              {t('about.story.headline')}
+            </p>
+            {t('about.story.content').split('\n\n').map((paragraph, index) => (
+              <p key={index} className="text-lg mb-6 text-gray-700">
+                {paragraph}
+              </p>
+            ))}
+            <p className="text-lg mb-8 text-gray-700">
+              {t('about.story.specialization')}
+            </p>
+          </motion.div>
+        </div>
 
-    With the precision and vision of an eagle, our team of professional photographers brings years of experience and artistic talent to every shoot. We specialize in a wide range of photography services, from stunning landscapes and portraits to weddings, events, and commercial photography. Our commitment to quality, creativity, and storytelling ensures that every fleeting moment is transformed into a timeless image.  
-
-    Eagle Shoot Photography is more than just photography—it’s a vision, a journey, and a celebration of life’s beauty. Let us bring an artistic touch to your most precious moments, creating images you’ll treasure for years to come.  
-</p>
-
-            <p className="text-lg mb-8 text-gray-700"> 
-              We specialize in a wide range of photography services, from weddings and events to portraits and commercial photography. Our goal is to exceed your expectations and deliver stunning images that you'll treasure for years to come. 
-            </p> 
- 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"> 
-              {features.map((feature, index) => ( 
-                <motion.div  
-                  key={index} 
-                  className="flex items-start gap-4" 
-                  initial={{ opacity: 0, y: 20 }} 
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
-                  transition={{ duration: 0.5, delay: 0.2 * index }} 
-                > 
-                  <div className="mt-1">{feature.icon}</div> 
-                  <div> 
-                    <h4 className="text-xl font-semibold mb-2 text-secondary">{feature.title}</h4> 
-                    <p className="text-gray-600">{feature.description}</p> 
-                  </div> 
-                </motion.div> 
-              ))} 
-            </div> 
-          </div> 
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"> 
+          {features.map((feature, index) => ( 
+            <motion.div  
+              key={index} 
+              className="flex items-start gap-4" 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
+              transition={{ duration: 0.5, delay: 0.2 * index }} 
+            > 
+              <div className="mt-1">{feature.icon}</div> 
+              <div> 
+                <h4 className="text-xl font-semibold mb-2 text-secondary">{feature.title}</h4> 
+                <p className="text-gray-600">{feature.description}</p> 
+              </div> 
+            </motion.div> 
+          ))} 
         </div> 
       </div> 
     </section> 

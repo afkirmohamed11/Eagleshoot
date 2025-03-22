@@ -1,26 +1,47 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface FloatingButtonsProps {
   showScrollTop: boolean;
 }
 
 const FloatingButtons: React.FC<FloatingButtonsProps> = ({ showScrollTop }) => {
+  const { language } = useLanguage(); // Get current language
+  const isRTL = language === 'ar';
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Using inline styles as a fallback to ensure consistency
+  const containerStyle = {
+    position: 'fixed',
+    bottom: '24px',
+    [isRTL ? 'left' : 'right']: '24px',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    gap: '16px',
+    zIndex: 50,
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
-      {/* WhatsApp Button */}
+    <div 
+      style={containerStyle}
+      className="!flex !flex-col"
+      dir={isRTL ? 'rtl' : 'ltr'}
+    >
+      {/* WhatsApp Button always on top */}
       <a
         href="https://wa.me/212605921443"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 shadow-lg hover:bg-green-600 transition-all duration-300"
+        aria-label="Contact us on WhatsApp"
+        style={{ marginBottom: '16px' }}
       >
-        <svg 
-          viewBox="0 0 24 24" 
+        <svg
+          viewBox="0 0 24 24"
           className="w-8 h-8 text-white"
           fill="currentColor"
         >
@@ -28,11 +49,12 @@ const FloatingButtons: React.FC<FloatingButtonsProps> = ({ showScrollTop }) => {
         </svg>
       </a>
 
-      {/* Scroll-to-Top Button */}
+      {/* Scroll-to-Top Button always below */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
           className="flex items-center justify-center w-14 h-14 rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 transition-all duration-300"
+          aria-label="Scroll to top"
         >
           <ArrowUp size={24} />
         </button>

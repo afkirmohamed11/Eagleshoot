@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({
@@ -9,13 +10,15 @@ const Contact: React.FC = () => {
     threshold: 0.1,
   });
 
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-secondary font-serif mb-4">Contact Us</h2>
+          <h2 className="text-4xl font-bold text-secondary font-serif mb-4">{t('contact.title')}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Ready to capture your special moments? Get in touch with us today to discuss your photography needs
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -27,9 +30,9 @@ const Contact: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">Get In Touch</h3>
+            <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">{t('contact.getintouch')}</h3>
             <p className="text-gray-600 mb-8">
-              We'd love to hear from you! Our team will get back to you as soon as possible to discuss your photography needs and how we can help bring your vision to life.
+              {t('contact.message')}
             </p>
 
             <div className="space-y-8">
@@ -42,7 +45,7 @@ const Contact: React.FC = () => {
                   <Phone className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-secondary">Phone</h4>
+                  <h4 className="text-xl font-semibold text-secondary">{t('contact.phone')}</h4>
                   <p className="text-gray-600 text-lg">+212 60-5921443</p>
                 </div>
               </a>
@@ -55,8 +58,8 @@ const Contact: React.FC = () => {
                 <div className="p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <Mail className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
                 </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-secondary">Email</h4>
+                  <div>
+                  <h4 className="text-xl font-semibold text-secondary">{t('contact.email')}</h4>
                   <p className="text-gray-600 text-lg">eagleshot.photographer@gmail.com</p>
                 </div>
               </a>
@@ -70,16 +73,16 @@ const Contact: React.FC = () => {
               >
                 <div className="p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <MapPin className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
-                </div>
+                  </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-secondary">Address</h4>
+                  <h4 className="text-xl font-semibold text-secondary">{t('contact.address')}</h4>
                   <p className="text-gray-600 text-lg">Imzouren, Al Hoceima</p>
                 </div>
               </a>
             </div>
 
             <div className="mt-12">
-              <h4 className="text-xl font-semibold mb-6 text-secondary">Follow Us</h4>
+              <h4 className="text-xl font-semibold mb-6 text-secondary">{t('contact.followus')}</h4>
               <div className="flex gap-4">
                 <a 
                   href="https://web.facebook.com/profile.php?id=100068582700441&locale=fr_FR" 
@@ -105,17 +108,17 @@ const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div  
+          <motion.div 
             className="lg:w-1/2 flex flex-col justify-center" 
             initial={{ opacity: 0, y: 30 }} 
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} 
             transition={{ duration: 0.6, delay: 0.2 }} 
           > 
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-6 text-secondary font-serif">Contact Us Directly</h3>
+              <h3 className="text-2xl font-bold mb-6 text-secondary font-serif">{t('contact.title')}</h3>
               
               <p className="text-gray-600 mb-8">
-                Prefer a quick conversation? Reach out to us on WhatsApp for immediate assistance with your photography needs.
+                {t('contact.message')}
               </p>
               
               <a 
@@ -124,26 +127,26 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer" 
                 className="flex items-center justify-center gap-3 px-6 py-4 bg-green-500 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-green-600 transition duration-300 w-full"
               > 
-                <Send className="w-6 h-6" /> Contact us via WhatsApp
+                <Send className="w-6 h-6" /> {t('contact.whatsapp')}
               </a>
               
               <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
-                <h4 className="text-lg font-semibold mb-3 text-secondary">Working Hours</h4>
+                <h4 className="text-lg font-semibold mb-3 text-secondary">{t('contact.hours')}</h4>
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex justify-between">
-                    <span>Monday - Friday:</span>
+                    <span>{t('contact.hours.weekdays')}:</span>
                     <span>9:00 AM - 6:00 PM</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Saturday:</span>
+                    <span>{t('contact.hours.saturday')}:</span>
                     <span>10:00 AM - 4:00 PM</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Sunday:</span>
-                    <span>Closed</span>
+                    <span>{t('contact.hours.sunday')}:</span>
+                    <span>{t('contact.hours.closed')}</span>
                   </li>
                 </ul>
-              </div>
+                </div>
             </div>
           </motion.div>
         </div>
