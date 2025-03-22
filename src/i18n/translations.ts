@@ -258,7 +258,7 @@ export const translations = {
     'services.equipment.features.lighting': 'Équipement d\'éclairage',
     'services.equipment.features.tripods': 'Trépieds et plus',
     // Section Magasin
-'store.title': 'Magasin', 
+'store.title': 'Notre Boutique', 
 'store.subtitle': 'Parcourez nos différents produits', 
 'store.camera.title': 'Caméra Nikon', 
 'store.camera.desc': 'Caméra adaptée à la photographie professionnelle', 
