@@ -109,6 +109,11 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
+                <a href="#store" className="text-gray-300 hover:text-primary transition-colors duration-300">
+                  {t('nav.store')}
+                </a>
+              </li>
+              <li>
                 <a href="#portfolio" className="text-gray-300 hover:text-primary transition-colors duration-300">
                   {t('nav.portfolio')}
                 </a>
