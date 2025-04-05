@@ -29,23 +29,39 @@ export const translations = {
     'about.delivery.desc': 'We understand the importance of deadlines and always deliver on time.', 
     'about.client.title': 'Client Focused', 
     'about.client.desc': 'Your vision and satisfaction are our top priorities throughout the process.', 
- // Footer Section
- 'footer.description': "Professional photography services capturing life's precious moments with an eagle's precision and artistic vision.",
- 'footer.quickLinks.title': 'Quick Links',
- 'footer.services.title': 'Services',
- 'footer.contactInfo.title': 'Contact Info',
- 'footer.copyright': '© {year} Eagle Shoot Photography. All rights reserved.',
- // Store Section
-'store.title': 'Our Store', 
-'store.subtitle': 'Browse our different products', 
-'store.camera.title': 'Camera Nikon', 
-'store.camera.desc': 'Camera customized for professional photography', 
-'store.camera.price': '1000 MAD', 
-'store.location.price': '150 MAD',  
-'store.camera.button': 'Get it Now', // Can be changed to 'Get Now' for neutrality
-'store.camera.buyLabel': 'Buy Price',
-'store.camera.borrowLabel': 'Borrow Price',
-'store.camera.getButton': 'Get Now', // Suggested new key for a neutral button label
+    // Footer Section
+    'footer.description': "Professional photography services capturing life's precious moments with an eagle's precision and artistic vision.",
+    'footer.quickLinks.title': 'Quick Links',
+    'footer.services.title': 'Services',
+    'footer.contactInfo.title': 'Contact Info',
+    'footer.copyright': '© {year} Eagle Shoot Photography. All rights reserved.',
+    // Store Section
+     // Store Section Only (other sections unchanged)
+    'store.title': 'Our Store',  
+    'store.subtitle': 'Browse our professional photography equipment',  
+    
+    // Camera 1 (Original Canon)
+    'store.camera1.title': 'Canon EOS + 18-55mm',  
+    'store.camera1.desc': 'Professional DSLR camera with versatile lens',  
+    'store.camera1.price': '2900 MAD',  
+    'store.camera1.borrowPrice': '250 MAD',
+    
+    // Camera 2 (Sony)
+    'store.camera2.title': 'Sony A7R',  
+    'store.camera2.desc': 'High-resolution mirrorless camera for professional work',  
+    'store.camera2.price': '21000 MAD',  
+    'store.camera2.borrowPrice': '400 MAD',
+    
+    // Camera 3 (DJI Mic)
+    'store.camera3.title': 'DJI Mic (2 TX + 1 RX + Charging Case)',  
+    'store.camera3.desc': 'Professional wireless microphone system for video production',  
+    'store.camera3.price': '4900 MAD',  
+    'store.camera3.borrowPrice': '400 MAD',
+    
+    // Shared labels
+    'store.camera.buyLabel': 'Buy Price', 
+    'store.camera.borrowLabel': 'Borrow Price', 
+    'store.camera.getButton': 'Get Now',
 
 
     // Services Section 
@@ -263,17 +279,31 @@ export const translations = {
     'services.equipment.features.lighting': 'Équipement d\'éclairage',
     'services.equipment.features.tripods': 'Trépieds et plus',
     // Section Magasin
-'store.title': 'Notre Boutique', 
-'store.subtitle': 'Parcourez nos différents produits', 
-'store.camera.title': 'Caméra Nikon', 
-'store.camera.desc': 'Caméra adaptée à la photographie professionnelle', 
-'store.camera.price': '1000 MAD',
-'store.location.price': '150 MAD',
-'store.camera.button': 'obtenez-le Maintenant',
-'store.camera.buyLabel': 'Prix d\'achat',
-'store.camera.borrowLabel': 'Prix de location',
-'store.camera.getButton': 'Obtenir maintenant', 
-
+    'store.title': 'Notre Boutique',  
+    'store.subtitle': 'Découvrez notre équipement photographique professionnel',  
+    
+    // Camera 1 (Canon)
+    'store.camera1.title': 'Canon EOS + 18-55mm',  
+    'store.camera1.desc': 'Appareil photo reflex numérique professionnel avec objectif polyvalent',  
+    'store.camera1.price': '2900 MAD', 
+    'store.camera1.borrowPrice': '250 MAD',
+    
+    // Camera 2 (Sony)
+    'store.camera2.title': 'Sony A7R',  
+    'store.camera2.desc': 'Appareil photo sans miroir haute résolution pour travail professionnel',  
+    'store.camera2.price': '21000 MAD', 
+    'store.camera2.borrowPrice': '400 MAD',
+    
+    // Camera 3 (DJI Mic)
+    'store.camera3.title': 'DJI Mic (2 TX + 1 RX + Boîtier de Charge)',  
+    'store.camera3.desc': 'Système de microphone sans fil professionnel pour production vidéo',  
+    'store.camera3.price': '4900 MAD', 
+    'store.camera3.borrowPrice': '400 MAD',
+    
+    // Étiquettes partagées
+    'store.camera.buyLabel': 'Prix d\'achat', 
+    'store.camera.borrowLabel': 'Prix de location', 
+    'store.camera.getButton': 'Obtenir maintenant',
 
     // Portfolio Section
     'portfolio.title': 'Notre Portfolio',
@@ -328,19 +358,32 @@ export const translations = {
     'hero.subtitle': 'تجلب Eagle Shoot Photography رؤيتك إلى الحياة من خلال خدمات التصوير الاحترافية المصممة خصيصًا لاحتياجاتك.', 
     'hero.services.button': 'خدماتنا', 
     'hero.contact.button': 'اتصل بنا', 
-    // Store Section
-    'store.title': 'متجرنا',
-    'store.subtitle': 'تصفح منتجاتنا المختلفة',
-    'store.camera.title': ' Nikon كاميرا',
-    'store.camera.desc': 'كاميرا معدلة للتصوير الاحترافي',
-    'store.camera.price': '1000 درهم',
-    'store.location.price': '150 درهم',
-    'store.camera.button': 'احصل عليه الآن',
-    'store.camera.buyLabel': 'سعر الشراء',
-    'store.camera.borrowLabel': 'سعر الاستئجار',
-    'store.camera.getButton': 'احصل الآن',
-
+    // قسم المتجر
+    'store.title': 'متجرنا', 
+    'store.subtitle': 'تصفح معدات التصوير الاحترافية لدينا', 
     
+    // الكاميرا 1 (كانون)
+    'store.camera1.title': 'Canon EOS + 18-55mm', 
+    'store.camera1.desc': 'كاميرا احترافية مع عدسة متعددة الاستخدامات', 
+    'store.camera1.price': '2900 درهم', 
+    'store.camera1.borrowPrice': '250 درهم',
+    
+    // الكاميرا 2 (سوني)
+    'store.camera2.title': 'Sony A7R', 
+    'store.camera2.desc': 'كاميرا بدون مرآة عالية الدقة للعمل الاحترافي', 
+    'store.camera2.price': '21000 درهم', 
+    'store.camera2.borrowPrice': '400 درهم',
+    
+    // الكاميرا 3 (DJI ميكروفون)
+    'store.camera3.title': 'DJI Mic (جهازي إرسال + جهاز استقبال + حافظة شحن)', 
+    'store.camera3.desc': 'نظام ميكروفون لاسلكي احترافي لإنتاج الفيديو', 
+    'store.camera3.price': '4900 درهم', 
+    'store.camera3.borrowPrice': '400 درهم',
+    
+    // التسميات المشتركة
+    'store.camera.buyLabel': 'سعر الشراء', 
+    'store.camera.borrowLabel': 'سعر الاستئجار', 
+    'store.camera.getButton': 'احصل الآن',
     // About Section 
     'about.title': 'من نحن', 
     'about.subtitle': 'خدمات تصوير احترافية مع الاهتمام بأدق التفاصيل', 
