@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage(); // Assuming currentLanguage provides the active language
   
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -66,7 +66,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg w-full">
-          <div className="flex flex-col items-center space-y-4 py-4">
+          <div
+            className={`flex ${
+              currentLanguage === 'ar' ? 'flex-row space-x-4 justify-center' : 'flex-col space-y-4'
+            } items-center py-4`}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.name}

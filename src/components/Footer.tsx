@@ -1,5 +1,5 @@
+import { Camera, MapPin, Phone } from 'lucide-react';
 import React from 'react';
-import { Camera, Phone, Mail, MapPin } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Footer: React.FC = () => {
@@ -166,12 +166,30 @@ const Footer: React.FC = () => {
                 <Phone size={20} className="mt-1 flex-shrink-0" />
                 <span className="text-gray-300">+212 60-5921443</span>
               </li>
-              {/* <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
-                <Mail size={20} className="mt-1 flex-shrink-0" />
-                <span className={`text-gray-300 break-words ${language === 'ar' ? 'w-full max-w-full' : ''}`}>
-                  eagleshot.photographer@gmail.com
-                </span>
-              </li> */}
+              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
+                <a
+                  href="https://wa.me/212605921443"
+                  className={`flex items-center gap-2 text-gray-300 hover:text-primary transition-colors duration-300 ${
+                    language === 'ar' ? 'flex-row-reverse' : 'flex-row'
+                  }`}
+                  aria-label="WhatsApp"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                  <span className="break-words">{t('footer.contactInfo.whatsapp')}</span>
+                </a>
+              </li>
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
