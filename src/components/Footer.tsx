@@ -159,19 +159,21 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact Info Section - Added responsive width for Arabic */}
-          <div className={`mb-8 ${language === 'ar' ? 'text-right lg:col-span-1 xl:col-span-1' : 'text-left'}`}>
+          <div className={`mb-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>
             <h3 className="text-xl font-semibold mb-8">{t('footer.contactInfo.title')}</h3>
             <ul className="space-y-5">
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <Phone size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-gray-300">+212 60-5921443</span>
+                <a href="tel:+212605921443" className="text-gray-300 hover:text-primary transition-colors duration-300">
+                  +212 60-5921443
+                </a>
               </li>
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <a
                   href="https://wa.me/212605921443"
-                  className={`flex items-center gap-2 text-gray-300 hover:text-primary transition-colors duration-300 ${
+                  className={`inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors duration-300 ${
                     language === 'ar' ? 'flex-row-reverse' : 'flex-row'
-                  }`}
+                  } w-full`}
                   aria-label="WhatsApp"
                 >
                   <svg
@@ -184,15 +186,16 @@ const Footer: React.FC = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="flex-shrink-0"
                   >
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>
-                  <span className="break-words">{t('footer.contactInfo.whatsapp')}</span>
+                  <span className="break-all">{t('footer.contactInfo.whatsapp')}</span>
                 </a>
               </li>
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-gray-300">
+                <span className="text-gray-300 break-words">
                   {language === 'ar' ? 'إمزورن، المغرب' : language === 'fr' ? 'Imzouren, Maroc' : 'Imzouren, Morocco'}
                 </span>
               </li>

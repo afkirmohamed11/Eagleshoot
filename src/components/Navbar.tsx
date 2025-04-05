@@ -65,18 +65,16 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg w-full">
-          <div
-            className={`flex ${
-              currentLanguage === 'ar' ? 'flex-row space-x-4 justify-center' : 'flex-col space-y-4'
-            } items-center py-4`}
-          >
+        <div className="md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto">
+          <div className={`flex flex-col space-y-4 items-${currentLanguage === 'ar' ? 'end' : 'start'} py-4 px-6`}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-secondary hover:text-primary font-medium transition-colors duration-300 py-2"
-                onClick={toggleMenu} // Close menu when clicking a link
+                className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-2 w-full ${
+                  currentLanguage === 'ar' ? 'text-right' : 'text-left'
+                }`}
+                onClick={toggleMenu}
               >
                 {link.name}
               </a>
