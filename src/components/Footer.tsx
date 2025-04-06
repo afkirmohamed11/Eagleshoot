@@ -68,6 +68,26 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a
+                href="https://www.youtube.com/@Eagleshoot_photographer"
+                className="text-white hover:text-primary transition-colors duration-300"
+                aria-label="YouTube"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+              <a
                 href="https://wa.me/212605921443"
                 className="text-white hover:text-primary transition-colors duration-300"
                 aria-label="WhatsApp"
@@ -168,31 +188,6 @@ const Footer: React.FC = () => {
                   +212 60-5921443
                 </a>
               </li>
-              {/* <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
-                <a
-                  href="https://wa.me/212605921443"
-                  className={`inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors duration-300 ${
-                    language === 'ar' ? 'flex-row-reverse' : 'flex-row'
-                  } w-full`}
-                  aria-label="WhatsApp"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="flex-shrink-0"
-                  >
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                  </svg>
-                  <span className="break-all">{t('footer.contactInfo.whatsapp')}</span>
-                </a>
-              </li> */}
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
                 <span className="text-gray-300 break-words">
