@@ -168,7 +168,7 @@ const Footer: React.FC = () => {
                   +212 60-5921443
                 </a>
               </li>
-              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
+              {/* <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <a
                   href="https://wa.me/212605921443"
                   className={`inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors duration-300 ${
@@ -192,7 +192,7 @@ const Footer: React.FC = () => {
                   </svg>
                   <span className="break-all">{t('footer.contactInfo.whatsapp')}</span>
                 </a>
-              </li>
+              </li> */}
               <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
                 <span className="text-gray-300 break-words">
