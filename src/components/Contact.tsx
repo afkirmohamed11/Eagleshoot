@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
               </a>
               
               <a 
-                href="https://maps.app.goo.gl/LNsXcZPbs8j9azEfA" 
+                href="https://www.google.com/maps/place/eagle+shoot/@35.1422385,-3.8579007,267m/data=!3m1!1e3!4m14!1m7!3m6!1s0xd75d3006d8c4d15:0xcee7a0fcac4e73ed!2seagle+shoot!8m2!3d35.1427992!4d-3.8568977!16s%2Fg%2F11x5yg442g!3m5!1s0xd75d3006d8c4d15:0xcee7a0fcac4e73ed!8m2!3d35.1427992!4d-3.8568977!16s%2Fg%2F11x5yg442g?entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-6 group cursor-pointer"
