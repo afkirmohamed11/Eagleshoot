@@ -6,6 +6,7 @@ export const translations = {
     'nav.services': 'Services', 
     'nav.portfolio': 'Portfolio', 
     'nav.store': 'Store',
+    'nav.activities': 'Activities',
     'nav.contact': 'Contact', 
  
     // Hero Section 
@@ -169,20 +170,22 @@ export const translations = {
 'portfolio.items.corporate': 'Corporate Event',
 'portfolio.items.product': 'Product Photography',
 'portfolio.items.concert': 'Music Concert',
+
+    // Activities Section
+    'activities.title': 'Our Latest Activities',
+    'activities.subtitle': 'Join us for workshops, exhibitions, and community events',
+    'activities.exhibition.date': 'May 23-27, 2025',
+    'activities.exhibition.title': 'Eagle Shoot at the Startup Exhibition in Al Hoceima',
+    'activities.exhibition.content': 'Eagle Shoot is proud to join the Startup Projects Exhibition in Al Hoceima with a dedicated workshop on advertising photography and digital content creation.\n\nThis event highlights our commitment to supporting innovation and creative entrepreneurship in the region.\n\nOur workshop will share insights into creating impactful visual content to help startups strengthen their brand and storytelling.\n\nJoin us to explore the power of professional media in building successful businesses in the digital era.',
   }, 
   fr: { 
-    // Footer Section
-    'footer.description': 'Services de photographie professionnelle capturant les moments précieux de la vie avec la précision et la vision artistique d’un aigle.',
-    'footer.quickLinks.title': 'Liens Rapides',
-    'footer.services.title': 'Services',
-    'footer.contactInfo.title': 'Informations de Contact',
-    'footer.copyright': '© {year} Eagle Shoot Photography. Tous droits réservés.',
     // Navigation 
     'nav.home': 'Accueil', 
     'nav.about': 'À Propos', 
     'nav.services': 'Services', 
     'nav.portfolio': 'Portfolio', 
     'nav.store': 'Boutique',
+    'nav.activities': 'Activités',
     'nav.contact': 'Contact', 
  
     // Hero Section 
@@ -206,6 +209,40 @@ export const translations = {
     'about.client.title': 'Centré sur le Client', 
     'about.client.desc': 'Votre vision et votre satisfaction sont nos principales priorités tout au long du processus.', 
  
+    // Footer Section
+    'footer.description': 'Services de photographie professionnelle capturant les moments précieux de la vie avec la précision et la vision artistique d’un aigle.',
+    'footer.quickLinks.title': 'Liens Rapides',
+    'footer.services.title': 'Services',
+    'footer.contactInfo.title': 'Informations de Contact',
+    'footer.copyright': '© {year} Eagle Shoot Photography. Tous droits réservés.',
+    // Store Section
+    // Section Magasin
+    'store.title': 'Notre Boutique',  
+    'store.subtitle': 'Découvrez notre équipement photographique professionnel',  
+    
+    // Camera 1 (Canon)
+    'store.camera1.title': 'Canon EOS + 18-55mm',  
+    'store.camera1.desc': 'Appareil photo reflex numérique professionnel avec objectif polyvalent',  
+    'store.camera1.price': '2900 MAD', 
+    'store.camera1.borrowPrice': '250 MAD',
+    
+    // Camera 2 (Sony)
+    'store.camera2.title': 'Sony A7R',  
+    'store.camera2.desc': 'Appareil photo sans miroir haute résolution pour travail professionnel',  
+    'store.camera2.price': '21000 MAD', 
+    'store.camera2.borrowPrice': '400 MAD',
+    
+    // Camera 3 (DJI Mic)
+    'store.camera3.title': 'DJI Mic (2 TX + 1 RX + Boîtier de Charge)',  
+    'store.camera3.desc': 'Système de microphone sans fil professionnel pour production vidéo',  
+    'store.camera3.price': '4900 MAD', 
+    'store.camera3.borrowPrice': '400 MAD',
+    
+    // Étiquettes partagées
+    'store.camera.buyLabel': 'Prix d\'achat', 
+    'store.camera.borrowLabel': 'Prix de location', 
+    'store.camera.getButton': 'Obtenir maintenant',
+
     // Services Section 
     'services.title': 'Nos Services', 
     'services.subtitle': 'Services de photographie professionnelle pour chaque occasion', 
@@ -279,32 +316,6 @@ export const translations = {
     'services.equipment.features.lighting': 'Équipement d\'éclairage',
     'services.equipment.features.tripods': 'Trépieds et plus',
     // Section Magasin
-    'store.title': 'Notre Boutique',  
-    'store.subtitle': 'Découvrez notre équipement photographique professionnel',  
-    
-    // Camera 1 (Canon)
-    'store.camera1.title': 'Canon EOS + 18-55mm',  
-    'store.camera1.desc': 'Appareil photo reflex numérique professionnel avec objectif polyvalent',  
-    'store.camera1.price': '2900 MAD', 
-    'store.camera1.borrowPrice': '250 MAD',
-    
-    // Camera 2 (Sony)
-    'store.camera2.title': 'Sony A7R',  
-    'store.camera2.desc': 'Appareil photo sans miroir haute résolution pour travail professionnel',  
-    'store.camera2.price': '21000 MAD', 
-    'store.camera2.borrowPrice': '400 MAD',
-    
-    // Camera 3 (DJI Mic)
-    'store.camera3.title': 'DJI Mic (2 TX + 1 RX + Boîtier de Charge)',  
-    'store.camera3.desc': 'Système de microphone sans fil professionnel pour production vidéo',  
-    'store.camera3.price': '4900 MAD', 
-    'store.camera3.borrowPrice': '400 MAD',
-    
-    // Étiquettes partagées
-    'store.camera.buyLabel': 'Prix d\'achat', 
-    'store.camera.borrowLabel': 'Prix de location', 
-    'store.camera.getButton': 'Obtenir maintenant',
-
     // Portfolio Section
     'portfolio.title': 'Notre Portfolio',
 'portfolio.subtitle': 'Parcourez notre collection de travaux photographiques professionnels mettant en valeur notre expertise et notre créativité',
@@ -318,10 +329,14 @@ export const translations = {
 'portfolio.items.corporate': 'Événement d\'Entreprise',
 'portfolio.items.product': 'Photographie de Produit',
 'portfolio.items.concert': 'Concert de Musique',
-    // French section
-    'services.showMore': 'Voir Plus',
-    'services.showLess': 'Voir Moins',
-    'services.bookNow': 'Réserver',
+
+    // Activities Section
+    'activities.title': 'Nos Dernières Activités',
+    'activities.subtitle': 'Rejoignez-nous pour des ateliers, expositions et événements communautaires',
+    'activities.exhibition.date': '23-27 Mai, 2025',
+    'activities.exhibition.title': 'Eagle Shoot à l\'Exposition des Startups à Al Hoceima',
+    'activities.exhibition.content': 'Eagle Shoot est fier de participer à l\'Exposition des Projets de Startups à Al Hoceima avec un atelier dédié à la photographie publicitaire et à la création de contenu numérique.\n\nCet événement souligne notre engagement à soutenir l\'innovation et l\'entrepreneuriat créatif dans la région.\n\nNotre atelier partagera des conseils sur la création de contenu visuel impactant pour aider les startups à renforcer leur marque et leur storytelling.\n\nRejoignez-nous pour explorer le pouvoir des médias professionnels dans la construction d\'entreprises prospères à l\'ère numérique.',
+    
     // Contact Section 
     'contact.title': 'Contactez-nous', 
     'contact.subtitle': 'Prêt à capturer vos moments spéciaux ? Contactez-nous dès aujourd\'hui', 
@@ -339,18 +354,13 @@ export const translations = {
     'contact.hours.closed': 'Fermé', 
   }, 
   ar: { 
-    // Footer Section
-    'footer.description': 'خدمات تصوير احترافية تلتقط اللحظات الثمينة في الحياة بدقة وفن النسر.',
-    'footer.quickLinks.title': 'روابط سريعة',
-    'footer.services.title': 'الخدمات',
-    'footer.contactInfo.title': 'معلومات الاتصال',
-    'footer.copyright': '© {year} إيجل شوت للتصوير. جميع الحقوق محفوظة.',
     // Navigation 
     'nav.home': 'الرئيسية', 
     'nav.about': 'من نحن', 
     'nav.services': 'خدماتنا', 
     'nav.portfolio': 'معرض الأعمال', 
     'nav.store': 'المتجر',
+    'nav.activities': 'الأنشطة',
     'nav.contact': 'اتصل بنا', 
  
     // Hero Section 
@@ -400,78 +410,40 @@ export const translations = {
     'about.client.title': 'التركيز على العميل', 
     'about.client.desc': 'رؤيتك ورضاك هما أولوياتنا الرئيسية طوال العملية.', 
  
-    // Services Section 
-    'services.title': 'خدماتنا', 
-    'services.subtitle': 'خدمات تصوير احترافية لكل مناسبة', 
-    'services.wedding.title': 'تصوير الأعراس', 
-    'services.wedding.desc': 'التقط يومك المميز بصور خالدة وعاطفية تروي قصة حبك الفريدة.',
-    'services.wedding.features.coverage': 'تغطية ليوم كامل',
-    'services.wedding.features.photos': 'صور رقمية معدلة',
-    'services.wedding.features.album': 'ألبوم زفاف',
-    'services.wedding.features.engagement': 'جلسة تصوير الخطوبة',
+    // Footer Section
+    'footer.description': 'خدمات تصوير احترافية تلتقط اللحظات الثمينة في الحياة بدقة وفن النسر.',
+    'footer.quickLinks.title': 'روابط سريعة',
+    'footer.services.title': 'الخدمات',
+    'footer.contactInfo.title': 'معلومات الاتصال',
+    'footer.copyright': '© {year} إيجل شوت للتصوير. جميع الحقوق محفوظة.',
+    // Store Section
+    // قسم المتجر
+    'store.title': 'متجرنا', 
+    'store.subtitle': 'تصفح معدات التصوير الاحترافية لدينا', 
     
-    'services.family.title': 'صور العائلة', 
-    'services.family.desc': 'صور عائلية جميلة تلتقط الروابط الحقيقية وتخلق ذكريات دائمة.',
-    'services.family.features.session': 'جلسة لمدة ساعة',
-    'services.family.features.photos': '20 صورة معدلة',
-    'services.family.features.delivery': 'تسليم رقمي',
-    'services.family.features.print': 'خيارات طباعة متاحة',
+    // الكاميرا 1 (كانون)
+    'store.camera1.title': 'Canon EOS + 18-55mm', 
+    'store.camera1.desc': 'كاميرا احترافية مع عدسة متعددة الاستخدامات', 
+    'store.camera1.price': '2900 درهم', 
+    'store.camera1.borrowPrice': '250 درهم',
     
-    'services.commercial.title': 'التصوير التجاري', 
-    'services.commercial.desc': 'تصوير احترافي للمنتجات لعرض عملك بصور جذابة ومصقولة.',
-    'services.commercial.features.product': 'تصوير المنتجات',
-    'services.commercial.features.brand': 'صور العلامة التجارية',
-    'services.commercial.features.license': 'ترخيص تجاري',
-    'services.commercial.features.turnaround': 'التسليم السريع',
+    // الكاميرا 2 (سوني)
+    'store.camera2.title': 'Sony A7R', 
+    'store.camera2.desc': 'كاميرا بدون مرآة عالية الدقة للعمل الاحترافي', 
+    'store.camera2.price': '21000 درهم', 
+    'store.camera2.borrowPrice': '400 درهم',
     
-    'services.event.title': 'تغطية المناسبات', 
-    'services.event.desc': 'تغطية شاملة لمناسباتك الخاصة، التقاط كل لحظة وعاطفة مهمة.',
-    'services.event.features.coverage': 'تغطية كاملة للحدث',
-    'services.event.features.previews': 'معاينات سريعة',
-    'services.event.features.editing': 'تحرير احترافي',
-    'services.event.features.gallery': 'معرض على الإنترنت',
+    // الكاميرا 3 (DJI ميكروفون)
+    'store.camera3.title': 'DJI Mic (جهازي إرسال + جهاز استقبال + حافظة شحن)', 
+    'store.camera3.desc': 'نظام ميكروفون لاسلكي احترافي لإنتاج الفيديو', 
+    'store.camera3.price': '4900 درهم', 
+    'store.camera3.borrowPrice': '400 درهم',
     
-    'services.portrait.title': 'جلسات التصوير الشخصية',
-    'services.portrait.desc': 'جلسات تصوير شخصية احترافية تبرز شخصيتك وتخلق تذكارات بصرية مذهلة.',
-    'services.portrait.features.session': 'جلسة لمدة 45 دقيقة',
-    'services.portrait.features.photos': '10 صور معدلة',
-    'services.portrait.features.delivery': 'تسليم رقمي',
-    'services.portrait.features.outfit': 'تغيير زي واحد',
-    
-    'services.website.title': 'إنشاء مواقع الويب',
-    'services.website.desc': 'مواقع ويب مخصصة لعرض عملك أو نشاطك التجاري بتصميم حديث ومتجاوب.',
-    'services.website.features.responsive': 'تصميم متجاوب',
-    'services.website.features.seo': 'تحسين محركات البحث',
-    'services.website.features.cms': 'نظام إدارة المحتوى',
-    'services.website.features.ecommerce': 'تكامل التجارة الإلكترونية',
-    
-    'services.basic.title': 'جلسة تصوير أساسية',
-    'services.basic.desc': 'مثالية لمحتوى وسائل التواصل الاجتماعي والصور الاحترافية السريعة للاستخدام الشخصي أو التجاري.',
-    'services.basic.features.session': 'جلسة لمدة 30 دقيقة',
-    'services.basic.features.photos': '5 صور معدلة',
-    'services.basic.features.delivery': 'تسليم رقمي',
-    'services.basic.features.location': 'موقع واحد',
-    
-    'services.editing.title': 'تحرير الصور والفيديو',
-    'services.editing.desc': 'خدمات تحرير احترافية لتحويل لقطاتك الخام إلى صور مصقولة ومذهلة.',
-    'services.editing.features.retouching': 'تنقيح عالي الجودة',
-    'services.editing.features.video': 'تحرير الفيديو',
-    'services.editing.features.color': 'تصحيح الألوان',
-    'services.editing.features.custom': 'تعديلات مخصصة',
-    
-    'services.social.title': 'إدارة وسائل التواصل الاجتماعي',
-    'services.social.desc': 'عزز حضورك الاجتماعي من خلال إنشاء محتوى استراتيجي وإدارة التفاعل.',
-    'services.social.features.content': 'إنشاء المحتوى',
-    'services.social.features.posting': 'نشر منتظم',
-    'services.social.features.tracking': 'تتبع التفاعل',
-    'services.social.features.campaign': 'إدارة الحملات الإعلانية',
+    // التسميات المشتركة
+    'store.camera.buyLabel': 'سعر الشراء', 
+    'store.camera.borrowLabel': 'سعر الاستئجار', 
+    'store.camera.getButton': 'احصل الآن',
 
-    'services.equipment.title': 'بيع معدات التصوير الفوتوغرافي',
-    'services.equipment.desc': 'نوفر معدات وإكسسوارات تصوير عالية الجودة بأسعار تنافسية للمحترفين والمتحمسين.',
-    'services.equipment.features.cameras': 'كاميرات',
-    'services.equipment.features.lenses': 'عدسات',
-    'services.equipment.features.lighting': 'معدات إضاءة',
-    'services.equipment.features.tripods': 'حوامل ثلاثية وأكثر',
     // Portfolio Section
     // For Arabic (ar)
 'portfolio.title': 'معرض أعمالنا',
@@ -486,11 +458,14 @@ export const translations = {
 'portfolio.items.corporate': 'فعالية شركة',
 'portfolio.items.product': 'تصوير منتجات',
 'portfolio.items.concert': 'حفل موسيقي',
-    // Arabic section
-    'services.showMore': 'عرض المزيد',
-    'services.showLess': 'عرض أقل',
-    'services.bookNow': 'احجز الآن',
 
+    // Activities Section
+    'activities.title': 'أنشطتنا الأخيرة',
+    'activities.subtitle': 'انضم إلينا في ورش العمل والمعارض وفعاليات المجتمع',
+    'activities.exhibition.date': '23-27 ماي، 2025',
+    'activities.exhibition.title': 'إيجل شوت في معرض الشركات الناشئة في الحسيمة',
+    'activities.exhibition.content': 'تفتخر إيجل شوت بالانضمام إلى معرض مشاريع الشركات الناشئة في الحسيمة بورشة عمل مخصصة للتصوير الإعلاني وإنشاء المحتوى الرقمي.\n\nيسلط هذا الحدث الضوء على التزامنا بدعم الابتكار وريادة الأعمال الإبداعية في المنطقة.\n\nستشارك ورشة العمل الخاصة بنا رؤى حول إنشاء محتوى مرئي مؤثر لمساعدة الشركات الناشئة على تعزيز علامتها التجارية وسرد قصصها.\n\nانضم إلينا لاستكشاف قوة وسائل الإعلام المهنية في بناء أعمال ناجحة في العصر الرقمي.',
+    
     // Contact Section 
     'contact.title': 'اتصل بنا',
     'contact.subtitle': 'هل أنت مستعد لالتقاط لحظاتك الخاصة؟ تواصل معنا اليوم',

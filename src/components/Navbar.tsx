@@ -20,6 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
     { name: t('nav.about'), href: '#about' },
     { name: t('nav.services'), href: '#services' },
     { name: t('nav.store'), href: '#store' },
+    { name: t('nav.activities'), href: '#activities' },
     { name: t('nav.portfolio'), href: '#portfolio' },
     { name: t('nav.contact'), href: '#contact' },
   ];

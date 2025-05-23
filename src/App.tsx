@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'; 
-import Navbar from './components/Navbar'; 
-import Hero from './components/Hero'; 
-import About from './components/About'; 
-import Services from './components/Services'; 
-import Portfolio from './components/Portfolio'; 
-import Contact from './components/Contact'; 
-import Footer from './components/Footer'; 
-import FloatingButtons from './components/FloatingButtons'; 
+import { useEffect, useState } from 'react';
+import About from './components/About';
+import Activities from './components/Activities';
+import Contact from './components/Contact';
+import FloatingButtons from './components/FloatingButtons';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import Portfolio from './components/Portfolio';
+import Services from './components/Services';
 import Store from './components/Store';
-import { LanguageProvider } from './i18n/LanguageContext'; 
+import { LanguageProvider } from './i18n/LanguageContext';
  
 function App() { 
   const [scrolled, setScrolled] = useState(false); 
@@ -33,6 +34,7 @@ function App() {
         <About /> 
         <Services /> 
         <Store/>
+        <Activities />
         <Portfolio /> 
         <Contact /> 
         <Footer /> 
