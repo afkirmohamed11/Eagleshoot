@@ -368,32 +368,7 @@ export const translations = {
     'hero.subtitle': 'تجلب Eagle Shoot Photography رؤيتك إلى الحياة من خلال خدمات التصوير الاحترافية المصممة خصيصًا لاحتياجاتك.', 
     'hero.services.button': 'خدماتنا', 
     'hero.contact.button': 'اتصل بنا', 
-    // قسم المتجر
-    'store.title': 'متجرنا', 
-    'store.subtitle': 'تصفح معدات التصوير الاحترافية لدينا', 
     
-    // الكاميرا 1 (كانون)
-    'store.camera1.title': 'Canon EOS + 18-55mm', 
-    'store.camera1.desc': 'كاميرا احترافية مع عدسة متعددة الاستخدامات', 
-    'store.camera1.price': '2900 درهم', 
-    'store.camera1.borrowPrice': '250 درهم',
-    
-    // الكاميرا 2 (سوني)
-    'store.camera2.title': 'Sony A7R', 
-    'store.camera2.desc': 'كاميرا بدون مرآة عالية الدقة للعمل الاحترافي', 
-    'store.camera2.price': '21000 درهم', 
-    'store.camera2.borrowPrice': '400 درهم',
-    
-    // الكاميرا 3 (DJI ميكروفون)
-    'store.camera3.title': 'DJI Mic (جهازي إرسال + جهاز استقبال + حافظة شحن)', 
-    'store.camera3.desc': 'نظام ميكروفون لاسلكي احترافي لإنتاج الفيديو', 
-    'store.camera3.price': '4900 درهم', 
-    'store.camera3.borrowPrice': '400 درهم',
-    
-    // التسميات المشتركة
-    'store.camera.buyLabel': 'سعر الشراء', 
-    'store.camera.borrowLabel': 'سعر الاستئجار', 
-    'store.camera.getButton': 'احصل الآن',
     // About Section 
     'about.title': 'من نحن', 
     'about.subtitle': 'خدمات تصوير احترافية مع الاهتمام بأدق التفاصيل', 
@@ -416,8 +391,8 @@ export const translations = {
     'footer.services.title': 'الخدمات',
     'footer.contactInfo.title': 'معلومات الاتصال',
     'footer.copyright': '© {year} إيجل شوت للتصوير. جميع الحقوق محفوظة.',
+    
     // Store Section
-    // قسم المتجر
     'store.title': 'متجرنا', 
     'store.subtitle': 'تصفح معدات التصوير الاحترافية لدينا', 
     
@@ -444,25 +419,103 @@ export const translations = {
     'store.camera.borrowLabel': 'سعر الاستئجار', 
     'store.camera.getButton': 'احصل الآن',
 
+    // Services Section
+    'services.title': 'خدماتنا',
+    'services.subtitle': 'خدمات تصوير احترافية لكل مناسبة',
+    
+    'services.wedding.title': 'تصوير الأعراس',
+    'services.wedding.desc': 'التقط يومك المميز بصور خالدة وعاطفية تروي قصة حبك الفريدة.',
+    'services.wedding.features.coverage': 'تغطية ليوم كامل',
+    'services.wedding.features.photos': 'صور رقمية معدلة',
+    'services.wedding.features.album': 'ألبوم زفاف',
+    'services.wedding.features.engagement': 'جلسة تصوير الخطوبة',
+    
+    'services.family.title': 'صور العائلة',
+    'services.family.desc': 'صور عائلية جميلة تلتقط الروابط الحقيقية وتخلق ذكريات دائمة.',
+    'services.family.features.session': 'جلسة لمدة ساعة',
+    'services.family.features.photos': '20 صورة معدلة',
+    'services.family.features.delivery': 'تسليم رقمي',
+    'services.family.features.print': 'خيارات طباعة متاحة',
+    
+    'services.commercial.title': 'التصوير التجاري',
+    'services.commercial.desc': 'تصوير احترافي للمنتجات لعرض عملك بصور جذابة ومصقولة.',
+    'services.commercial.features.product': 'تصوير المنتجات',
+    'services.commercial.features.brand': 'صور العلامة التجارية',
+    'services.commercial.features.license': 'ترخيص تجاري',
+    'services.commercial.features.turnaround': 'التسليم السريع',
+    
+    'services.event.title': 'تغطية المناسبات',
+    'services.event.desc': 'تغطية شاملة لمناسباتك الخاصة، التقاط كل لحظة وعاطفة مهمة.',
+    'services.event.features.coverage': 'تغطية كاملة للحدث',
+    'services.event.features.previews': 'معاينات سريعة',
+    'services.event.features.editing': 'تحرير احترافي',
+    'services.event.features.gallery': 'معرض على الإنترنت',
+    
+    'services.portrait.title': 'جلسات التصوير الشخصية',
+    'services.portrait.desc': 'جلسات تصوير شخصية احترافية تبرز شخصيتك وتخلق تذكارات بصرية مذهلة.',
+    'services.portrait.features.session': 'جلسة لمدة 45 دقيقة',
+    'services.portrait.features.photos': '10 صور معدلة',
+    'services.portrait.features.delivery': 'تسليم رقمي',
+    'services.portrait.features.outfit': 'تغيير زي واحد',
+    
+    'services.website.title': 'إنشاء مواقع الويب',
+    'services.website.desc': 'مواقع ويب مخصصة لعرض عملك أو نشاطك التجاري بتصميم حديث ومتجاوب.',
+    'services.website.features.responsive': 'تصميم متجاوب',
+    'services.website.features.seo': 'تحسين محركات البحث',
+    'services.website.features.cms': 'نظام إدارة المحتوى',
+    'services.website.features.ecommerce': 'تكامل التجارة الإلكترونية',
+    
+    'services.basic.title': 'جلسة تصوير أساسية',
+    'services.basic.desc': 'مثالية لمحتوى وسائل التواصل الاجتماعي والصور الاحترافية السريعة للاستخدام الشخصي أو التجاري.',
+    'services.basic.features.session': 'جلسة لمدة 30 دقيقة',
+    'services.basic.features.photos': '5 صور معدلة',
+    'services.basic.features.delivery': 'تسليم رقمي',
+    'services.basic.features.location': 'موقع واحد',
+    
+    'services.editing.title': 'تحرير الصور والفيديو',
+    'services.editing.desc': 'خدمات تحرير احترافية لتحويل لقطاتك الخام إلى صور مصقولة ومذهلة.',
+    'services.editing.features.retouching': 'تنقيح عالي الجودة',
+    'services.editing.features.video': 'تحرير الفيديو',
+    'services.editing.features.color': 'تصحيح الألوان',
+    'services.editing.features.custom': 'تعديلات مخصصة',
+    
+    'services.social.title': 'إدارة وسائل التواصل الاجتماعي',
+    'services.social.desc': 'عزز حضورك الاجتماعي من خلال إنشاء محتوى استراتيجي وإدارة التفاعل.',
+    'services.social.features.content': 'إنشاء المحتوى',
+    'services.social.features.posting': 'نشر منتظم',
+    'services.social.features.tracking': 'تتبع التفاعل',
+    'services.social.features.campaign': 'إدارة الحملات الإعلانية',
+    
+    'services.equipment.title': 'بيع معدات التصوير الفوتوغرافي',
+    'services.equipment.desc': 'نوفر معدات وإكسسوارات تصوير عالية الجودة بأسعار تنافسية للمحترفين والمتحمسين.',
+    'services.equipment.features.cameras': 'كاميرات',
+    'services.equipment.features.lenses': 'عدسات',
+    'services.equipment.features.lighting': 'معدات إضاءة',
+    'services.equipment.features.tripods': 'حوامل ثلاثية وأكثر',
+    
+    // Button texts
+    'services.showMore': 'عرض المزيد',
+    'services.showLess': 'عرض أقل',
+    'services.bookNow': 'احجز الآن',
+    
     // Portfolio Section
-    // For Arabic (ar)
-'portfolio.title': 'معرض أعمالنا',
-'portfolio.subtitle': 'تصفح مجموعتنا من أعمال التصوير الاحترافية التي تعرض خبرتنا وإبداعنا',
-'portfolio.categories.all': 'الكل',
-'portfolio.categories.wedding': 'زفاف',
-'portfolio.categories.portrait': 'صور شخصية',
-'portfolio.categories.event': 'مناسبات',
-'portfolio.categories.commercial': 'تجاري',
-'portfolio.items.wedding': 'زفاف أنيق',
-'portfolio.items.portrait': 'صورة شخصية احترافية',
-'portfolio.items.corporate': 'فعالية شركة',
-'portfolio.items.product': 'تصوير منتجات',
-'portfolio.items.concert': 'حفل موسيقي',
+    'portfolio.title': 'معرض أعمالنا',
+    'portfolio.subtitle': 'تصفح مجموعتنا من أعمال التصوير الاحترافية التي تعرض خبرتنا وإبداعنا',
+    'portfolio.categories.all': 'الكل',
+    'portfolio.categories.wedding': 'زفاف',
+    'portfolio.categories.portrait': 'صور شخصية',
+    'portfolio.categories.event': 'مناسبات',
+    'portfolio.categories.commercial': 'تجاري',
+    'portfolio.items.wedding': 'زفاف أنيق',
+    'portfolio.items.portrait': 'صورة شخصية احترافية',
+    'portfolio.items.corporate': 'فعالية شركة',
+    'portfolio.items.product': 'تصوير منتجات',
+    'portfolio.items.concert': 'حفل موسيقي',
 
     // Activities Section
     'activities.title': 'أنشطتنا الأخيرة',
     'activities.subtitle': 'انضم إلينا في ورش العمل والمعارض وفعاليات المجتمع',
-    'activities.exhibition.date': '23-27 ماي، 2025',
+    'activities.exhibition.date': '23-27 مايو، 2025',
     'activities.exhibition.title': 'إيجل شوت في معرض الشركات الناشئة في الحسيمة',
     'activities.exhibition.content': 'تفتخر إيجل شوت بالانضمام إلى معرض مشاريع الشركات الناشئة في الحسيمة بورشة عمل مخصصة للتصوير الإعلاني وإنشاء المحتوى الرقمي.\n\nيسلط هذا الحدث الضوء على التزامنا بدعم الابتكار وريادة الأعمال الإبداعية في المنطقة.\n\nستشارك ورشة العمل الخاصة بنا رؤى حول إنشاء محتوى مرئي مؤثر لمساعدة الشركات الناشئة على تعزيز علامتها التجارية وسرد قصصها.\n\nانضم إلينا لاستكشاف قوة وسائل الإعلام المهنية في بناء أعمال ناجحة في العصر الرقمي.',
     
@@ -481,4 +534,5 @@ export const translations = {
     'contact.hours.saturday': 'السبت',
     'contact.hours.sunday': 'الأحد',
     'contact.hours.closed': 'مغلق',
-  }}
+  }
+}
