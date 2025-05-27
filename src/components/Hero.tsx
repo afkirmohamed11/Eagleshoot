@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center">
       <div className="absolute inset-0 z-0 overflow-hidden">
         {images.map((image, index) => (
           <motion.div
@@ -38,34 +38,47 @@ const Hero: React.FC = () => {
         ))}
       </div>
      
-      <div className="container mx-auto px-4 z-10 py-20">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="container z-10 py-12 sm:py-20">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <motion.div
-            className="md:w-1/2 text-white"
+            className="w-full md:w-1/2 text-white text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif">{t('hero.title')}</h1>
-            <p className="text-xl mb-8 max-w-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 font-serif">
+              {t('hero.title')}
+            </h1>
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-lg mx-auto md:mx-0">
               {t('hero.subtitle')}
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#services" className="btn-primary">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a 
+                href="#services" 
+                className="btn-primary whitespace-nowrap"
+              >
                 {t('hero.services.button')}
               </a>
-              <a href="#contact" className="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-secondary transition-colors duration-300">
+              <a 
+                href="#contact" 
+                className="border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium hover:bg-white hover:text-secondary transition-colors duration-300 whitespace-nowrap"
+              >
                 {t('hero.contact.button')}
               </a>
             </div>
           </motion.div>
          
           <motion.div
-            className="md:w-1/2 flex justify-center logo-3d"
+            className="w-full md:w-1/2 flex justify-center logo-3d"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
+            <img 
+              src="/eagle-icon.svg" 
+              alt="Eagle Shoot Logo" 
+              className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72"
+            />
           </motion.div>
         </div>
       </div>

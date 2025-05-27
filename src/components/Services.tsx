@@ -22,7 +22,7 @@ const Services: React.FC = () => {
   
   const services = [  
     { 
-      icon: <Heart className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.wedding.title'),
       description: t('services.wedding.desc'),
       features: [
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Users className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Users className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.family.title'),
       description: t('services.family.desc'),
       features: [
@@ -44,7 +44,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Building className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Building className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.commercial.title'),
       description: t('services.commercial.desc'),
       features: [
@@ -55,7 +55,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Calendar className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Calendar className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.event.title'),
       description: t('services.event.desc'),
       features: [
@@ -66,7 +66,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <User className="w-12 h-12 text-primary mb-4" />, 
+      icon: <User className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.portrait.title'), 
       description: t('services.portrait.desc'),
       features: [
@@ -77,7 +77,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Globe className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.website.title'), 
       description: t('services.website.desc'),
       features: [
@@ -88,7 +88,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Camera className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Camera className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.basic.title'), 
       description: t('services.basic.desc'),
       features: [
@@ -99,7 +99,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Scissors className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Scissors className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.editing.title'), 
       description: t('services.editing.desc'),
       features: [
@@ -110,7 +110,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <Share2 className="w-12 h-12 text-primary mb-4" />, 
+      icon: <Share2 className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.social.title'), 
       description: t('services.social.desc'),
       features: [
@@ -121,7 +121,7 @@ const Services: React.FC = () => {
       ] 
     },  
     { 
-      icon: <ShoppingBag className="w-12 h-12 text-primary mb-4" />, 
+      icon: <ShoppingBag className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-4" />, 
       title: t('services.equipment.title'), 
       description: t('services.equipment.desc'),
       features: [
@@ -133,38 +133,83 @@ const Services: React.FC = () => {
     }  
   ];  
 
-  const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } };  
-  const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } };  
+  const containerVariants = { 
+    hidden: { opacity: 0 }, 
+    visible: { 
+      opacity: 1, 
+      transition: { 
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      } 
+    } 
+  };  
+
+  const itemVariants = { 
+    hidden: { opacity: 0, y: 20 }, 
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.5,
+        ease: "easeOut"
+      } 
+    } 
+  };  
 
   return (  
-    <section id="services" className="py-20 bg-gray-50">  
-      <div className="container mx-auto px-4 text-center">  
+    <section id="services" className="py-12 sm:py-20 bg-gray-50">  
+      <div className="container text-center">  
         <h2 className="section-title">{t('services.title')}</h2>  
-        <p className="section-subtitle mb-16">{t('services.subtitle')}</p>  
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={ref} variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>  
+        <p className="section-subtitle mb-12 sm:mb-16">{t('services.subtitle')}</p>  
+        
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" 
+          ref={ref} 
+          variants={containerVariants} 
+          initial="hidden" 
+          animate={inView ? 'visible' : 'hidden'}
+        >  
           {(showAll ? services : services.slice(0, 6)).map((service, index) => (  
-            <motion.div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden service-card" variants={itemVariants}>  
-              <div className="p-8">  
+            <motion.div 
+              key={index} 
+              className="bg-white rounded-lg shadow-lg overflow-hidden service-card h-full" 
+              variants={itemVariants}
+            >  
+              <div className="p-6 sm:p-8">  
                 <div className="flex justify-center">{service.icon}</div>  
-                <h3 className="text-2xl font-bold text-center mb-4 font-serif text-secondary">{service.title}</h3>  
-                <p className="text-gray-600 text-center mb-6">{service.description}</p>  
-                <ul className={`space-y-3 mb-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>  
+                <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 sm:mb-4 font-serif text-secondary">
+                  {service.title}
+                </h3>  
+                <p className="text-gray-600 text-center mb-4 sm:mb-6 text-sm sm:text-base">
+                  {service.description}
+                </p>  
+                <ul className={`space-y-2 sm:space-y-3 mb-6 sm:mb-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>  
                   {service.features.map((feature, idx) => (  
-                    <li key={idx} className={`flex items-center ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>  
-                    <span className={`w-2 h-2 bg-primary rounded-full ${language === 'ar' ? 'ml-3' : 'mr-3'}`}></span>  
-                    <span className="text-gray-700">{feature}</span>  
-                  </li>  
+                    <li 
+                      key={idx} 
+                      className={`flex items-center text-sm sm:text-base ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}
+                    >  
+                      <span className={`w-2 h-2 bg-primary rounded-full ${language === 'ar' ? 'ml-3' : 'mr-3'}`}></span>  
+                      <span className="text-gray-700">{feature}</span>  
+                    </li>  
                   ))}  
                 </ul>  
-                <a href="https://wa.me/212605921443" className="block text-center bg-secondary hover:bg-primary text-white font-medium py-3 px-6 rounded-md transition-colors duration-300">
+                <a 
+                  href="https://wa.me/212605921443" 
+                  className="block text-center bg-secondary hover:bg-primary text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-md transition-colors duration-300 text-sm sm:text-base"
+                >
                   {t('services.bookNow')}
                 </a>  
               </div>  
             </motion.div>  
           ))}  
         </motion.div>  
-        <div className="mt-10">  
-          <button onClick={() => setShowAll(!showAll)} className="bg-primary text-white font-medium py-3 px-6 rounded-md transition-colors duration-300">  
+        
+        <div className="mt-8 sm:mt-10">  
+          <button 
+            onClick={() => setShowAll(!showAll)} 
+            className="bg-primary text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-md transition-colors duration-300 text-sm sm:text-base hover:bg-opacity-90"
+          >  
             {showAll ? t('services.showLess') : t('services.showMore')}  
           </button>  
         </div>  

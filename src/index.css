@@ -10,6 +10,17 @@
   --background: #f1faee;
 }
 
+/* Base Responsive Styles */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 /* RTL Support */
 [dir="rtl"] {
   text-align: right;
@@ -41,18 +52,9 @@
   margin-right: 0.5rem;
 }
 
-[dir="rtl"] .gap-4 {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .gap-6 {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .gap-8 {
-  flex-direction: row-reverse;
-}
-
+[dir="rtl"] .gap-4,
+[dir="rtl"] .gap-6,
+[dir="rtl"] .gap-8,
 [dir="rtl"] .gap-12 {
   flex-direction: row-reverse;
 }
@@ -61,10 +63,33 @@
   --tw-space-x-reverse: 1;
 }
 
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  [dir="rtl"] .mobile-menu {
+    transform: translateX(-100%);
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text);
   background-color: var(--background);
+  overflow-x: hidden;
 }
 
 [dir="rtl"] body {
@@ -82,6 +107,19 @@ h1, h2, h3, h4, h5, h6 {
 [dir="rtl"] h5,
 [dir="rtl"] h6 {
   font-family: 'Noto Serif Arabic', serif;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .hero-gradient {
@@ -125,23 +163,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
   backdrop-filter: blur(10px);
-  background-color: rgba(241, 250, 238, 0.8);
+  background-color: rgba(241, 250, 238, 0.95);
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-[#e63946] text-white px-6 py-3 rounded-md font-medium hover:bg-[#c1121f] transition-colors duration-300;
+    @apply bg-[#e63946] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium hover:bg-[#c1121f] transition-colors duration-300 text-sm sm:text-base;
   }
   
   .btn-secondary {
-    @apply bg-[#1d3557] text-white px-6 py-3 rounded-md font-medium hover:bg-[#142536] transition-colors duration-300;
+    @apply bg-[#1d3557] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium hover:bg-[#142536] transition-colors duration-300 text-sm sm:text-base;
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-bold mb-8 text-[#1d3557];
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-[#1d3557];
   }
   
   .section-subtitle {
-    @apply text-xl text-[#457b9d] mb-12 max-w-3xl mx-auto;
+    @apply text-lg sm:text-xl text-[#457b9d] mb-8 sm:mb-12 max-w-3xl mx-auto px-4;
+  }
+
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
   }
 }

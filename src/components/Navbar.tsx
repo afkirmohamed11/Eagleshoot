@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
@@ -9,11 +9,32 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t, currentLanguage } = useLanguage(); // Assuming currentLanguage provides the active language
+  const { t, currentLanguage } = useLanguage();
   
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isOpen]);
+
+  // Close mobile menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const navLinks = [
     { name: t('nav.home'), href: '#home' },
@@ -29,15 +50,15 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
     <nav
       className={`navbar fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'py-2 shadow-md' : 'py-4'
-      } bg-white`} // Ensure the navbar has a background to avoid transparency issues
+      }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container flex justify-between items-center">
         {/* Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 text-primary font-serif font-bold text-2xl"
+          className="flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl"
         >
-          <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-10 h-10" />
+          <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
           <span>Eagle Shoot</span>
         </a>
         
@@ -55,34 +76,42 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           <LanguageSelector />
         </div>
         
-        {/* Mobile Navigation Toggle Button (Hamburger) */}
+        {/* Mobile Navigation Toggle Button */}
         <div className="md:hidden flex items-center gap-4">
           <LanguageSelector />
-          <button className="text-secondary z-50" onClick={toggleMenu}>
-            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          <button 
+            className="menu-button text-secondary z-50 p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
       
       {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto">
-          <div className={`flex flex-col space-y-4 items-${currentLanguage === 'ar' ? 'end' : 'start'} py-4 px-6`}>
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-2 w-full ${
-                  currentLanguage === 'ar' ? 'text-right' : 'text-left'
-                }`}
-                onClick={toggleMenu}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+      <div 
+        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
+          isOpen ? 'open' : ''
+        }`}
+      >
+        <div className={`flex flex-col space-y-4 py-4 px-6 ${
+          currentLanguage === 'ar' ? 'items-end' : 'items-start'
+        }`}>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-2 w-full ${
+                currentLanguage === 'ar' ? 'text-right' : 'text-left'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

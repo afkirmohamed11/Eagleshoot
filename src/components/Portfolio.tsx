@@ -88,22 +88,22 @@ const Portfolio: React.FC = () => {
     : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <section id="portfolio" className="py-12 sm:py-20">
+      <div className="container">
+        <div className="text-center mb-8 sm:mb-16">
           <h2 className="section-title">{t('portfolio.title')}</h2>
           <p className="section-subtitle">
             {t('portfolio.subtitle')}
           </p>
         </div>
 
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex justify-center mb-8 sm:mb-12">
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-center">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2 rounded-full transition-colors duration-300 ${
+                className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors duration-300 text-sm sm:text-base ${
                   activeCategory === category.id
                     ? 'bg-primary text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -116,7 +116,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
           ref={ref}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -136,9 +136,10 @@ const Portfolio: React.FC = () => {
                   src={item.image} 
                   alt={item.title} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <h3 className={`text-white font-semibold text-lg ${language === 'ar' ? 'text-right w-full' : ''}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
+                  <h3 className={`text-white font-semibold text-base sm:text-lg ${language === 'ar' ? 'text-right w-full' : ''}`}>
                     {item.title}
                   </h3>
                 </div>
