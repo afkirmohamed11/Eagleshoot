@@ -19,6 +19,8 @@ const Activities: React.FC = () => {
     '/hoceima2.jpg',
     '/hoceima3.jpg',
     '/hoceima4.jpg',
+    '/hoceima5.jpg',
+    '/hoceima6.jpg',
   ];
 
   const handlePrevImage = () => {
