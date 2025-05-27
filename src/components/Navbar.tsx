@@ -104,9 +104,15 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         }`}
         dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
       >
-        <div className={`flex flex-col py-4 px-6 ${
+        <div className={`flex flex-col py-4 px-6 space-y-0 ${
           currentLanguage === 'ar' ? 'items-end' : 'items-start'
-        }`}>
+        }`}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: currentLanguage === 'ar' ? 'flex-end' : 'flex-start'
+        }}
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -115,6 +121,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
                 currentLanguage === 'ar' ? 'text-right' : 'text-left'
               }`}
               onClick={() => setIsOpen(false)}
+              style={{
+                display: 'block',
+                width: '100%',
+                textAlign: currentLanguage === 'ar' ? 'right' : 'left'
+              }}
             >
               {link.name}
             </a>

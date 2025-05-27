@@ -86,15 +86,23 @@ img {
     transform: translateX(0);
   }
 
-  /* Fix mobile menu items for RTL */
+  /* Fix mobile menu items for RTL - FORCE VERTICAL LAYOUT */
+  .mobile-menu .flex-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
   [dir="rtl"] .mobile-menu .flex-col {
+    display: flex !important;
+    flex-direction: column !important;
     align-items: flex-end !important;
   }
 
   [dir="rtl"] .mobile-menu a {
     text-align: right !important;
-    width: 100%;
-    display: block;
+    width: 100% !important;
+    display: block !important;
   }
 
   /* Mobile specific typography adjustments */
@@ -102,10 +110,29 @@ img {
     font-size: 1rem;
     padding: 0.75rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block !important;
+    width: 100% !important;
   }
 
   .mobile-menu a:last-child {
     border-bottom: none;
+  }
+
+  /* Override any RTL flex direction changes for mobile menu */
+  [dir="rtl"] .mobile-menu .space-x-8,
+  [dir="rtl"] .mobile-menu .gap-4,
+  [dir="rtl"] .mobile-menu .gap-6,
+  [dir="rtl"] .mobile-menu .gap-8,
+  [dir="rtl"] .mobile-menu .gap-12 {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  [dir="rtl"] .mobile-menu .space-x-2 > :not([hidden]) ~ :not([hidden]),
+  [dir="rtl"] .mobile-menu .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 
