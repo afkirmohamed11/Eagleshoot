@@ -11,30 +11,54 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, currentLanguage } = useLanguage();
   
-  // Close mobile menu when clicking outside
+  // Optimized click outside handler
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+      if (isOpen && 
+          !target.closest('.mobile-menu') && 
+          !target.closest('.menu-button') &&
+          !target.closest('.language-selector')) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutside, { passive: true });
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.body.classList.remove('menu-open');
+    };
   }, [isOpen]);
 
   // Close mobile menu when window is resized to desktop size
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 768 && isOpen) {
         setIsOpen(false);
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isOpen]);
+
+  // Optimized toggle function
+  const toggleMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsOpen(prev => !prev);
+  };
+
+  // Optimized close function
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
   
   const navLinks = [
     { name: t('nav.home'), href: '#home' },
@@ -60,6 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           className={`flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl ${
             currentLanguage === 'ar' ? 'flex-row-reverse' : ''
           }`}
+          onClick={closeMenu}
         >
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
           <span>Eagle Shoot</span>
@@ -87,9 +112,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         }`}>
           <LanguageSelector />
           <button 
-            className="menu-button text-secondary z-50 p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
-            onClick={() => setIsOpen(!isOpen)}
+            className="menu-button text-secondary z-50 p-2 hover:bg-gray-100 rounded-full transition-all duration-200"
+            onClick={toggleMenu}
+            onTouchStart={(e) => e.preventDefault()}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            type="button"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -98,7 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       
       {/* Mobile Navigation Menu */}
       <div 
-        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
+        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-200 ease-out ${
           isOpen ? 'open' : ''
         }`}
         dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
@@ -110,10 +137,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-3 w-full block ${
+              className={`text-secondary hover:text-primary font-medium transition-colors duration-200 py-3 w-full block ${
                 currentLanguage === 'ar' ? 'text-right' : 'text-left'
               }`}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
+              onTouchStart={(e) => e.stopPropagation()}
             >
               {link.name}
             </a>

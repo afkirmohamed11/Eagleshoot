@@ -66,9 +66,11 @@ img {
 @media (max-width: 768px) {
   .mobile-menu {
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease;
     max-height: calc(100vh - 60px);
     overflow-y: auto;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   [dir="rtl"] .mobile-menu {
@@ -77,6 +79,21 @@ img {
 
   .mobile-menu.open {
     transform: translateX(0);
+  }
+
+  /* Improved mobile menu button */
+  .menu-button {
+    position: relative;
+    z-index: 60 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  .menu-button:active {
+    transform: scale(0.95);
   }
 
   /* Force vertical layout for mobile menu */
@@ -98,6 +115,7 @@ img {
     display: block !important;
   }
 
+  /* Optimized mobile menu links */
   .mobile-menu a {
     font-size: 1rem;
     padding: 1rem 1.5rem !important;
@@ -109,6 +127,9 @@ img {
     cursor: pointer !important;
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: rgba(230, 57, 70, 0.1) !important;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    position: relative;
+    z-index: 10;
   }
 
   .mobile-menu a:hover,
@@ -122,7 +143,7 @@ img {
     border-bottom: none;
   }
 
-  /* Override any RTL flex direction changes for mobile menu */
+  /* Remove problematic space and gap utilities from mobile menu */
   [dir="rtl"] .mobile-menu .space-x-8,
   [dir="rtl"] .mobile-menu .gap-4,
   [dir="rtl"] .mobile-menu .gap-6,
@@ -137,6 +158,13 @@ img {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 0 !important;
+  }
+
+  /* Prevent scroll issues */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 }
 
