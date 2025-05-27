@@ -1,8 +1,39 @@
-import React from 'react';
+import { ChevronDown } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const LanguageSelector: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
+    setIsOpen(false); // Close dropdown after selection
+  };
+
+  const toggleDropdown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsOpen(!isOpen);
+  };
+
   const languages = [
     { 
       code: 'ar', 
@@ -17,17 +48,19 @@ const LanguageSelector: React.FC = () => {
     { 
       code: 'en', 
       name: 'English', 
-      flagSrc: 'https://flagcdn.com/us.svg'  // USA flag
+      flagSrc: 'https://flagcdn.com/gb.svg'  // UK flag
     },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
-    <div className="relative group">
+    <div className="relative" ref={dropdownRef}>
       <button
-        className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 transition-colors duration-300"
+        onClick={toggleDropdown}
+        className="flex items-center gap-2 px-3 py-2 text-secondary hover:text-primary transition-colors duration-300 rounded-md"
         aria-label="Select language"
+        type="button"
       >
         <img 
           src={currentLanguage?.flagSrc} 
@@ -35,25 +68,41 @@ const LanguageSelector: React.FC = () => {
           className="w-6 h-4 object-cover"
         />
         <span className="hidden md:inline text-secondary">{currentLanguage?.name}</span>
+        <ChevronDown 
+          size={16} 
+          className={`transform transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
       </button>
-      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-        {languages.map((lang) => (
-          <button
-            key={lang.code}
-            onClick={() => setLanguage(lang.code as 'ar' | 'fr' | 'en')}
-            className={`w-full flex items-center gap-3 px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-300 ${
-              language === lang.code ? 'bg-gray-50 text-primary' : 'text-secondary'
-            }`}
-          >
-            <img 
-              src={lang.flagSrc} 
-              alt={`${lang.name} flag`}
-              className="w-6 h-4 object-cover"
-            />
-            <span>{lang.name}</span>
-          </button>
-        ))}
-      </div>
+
+      {isOpen && (
+        <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[120px]">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => handleLanguageChange(lang.code)}
+              className={`w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-gray-50 transition-colors duration-200 ${
+                language === lang.code 
+                  ? 'bg-primary text-white hover:bg-primary' 
+                  : 'text-secondary'
+              } ${
+                lang === languages[0] ? 'rounded-t-md' : ''
+              } ${
+                lang === languages[languages.length - 1] ? 'rounded-b-md' : ''
+              }`}
+              type="button"
+            >
+              <img 
+                src={lang.flagSrc} 
+                alt={`${lang.name} flag`}
+                className="w-6 h-4 object-cover"
+              />
+              <span>{lang.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
