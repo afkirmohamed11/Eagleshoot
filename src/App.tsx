@@ -11,37 +11,39 @@ import Services from './components/Services';
 import Store from './components/Store';
 import { LanguageProvider } from './i18n/LanguageContext';
  
-function App() { 
-  const [scrolled, setScrolled] = useState(false); 
-  const [showScrollTop, setShowScrollTop] = useState(false); 
+function App() {
+  const [scrolled, setScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
-  useEffect(() => { 
-    const handleScroll = () => { 
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 50);
-      setShowScrollTop(scrollY > 500);
-    }; 
- 
-    window.addEventListener('scroll', handleScroll); 
-    return () => window.removeEventListener('scroll', handleScroll); 
-  }, []); 
- 
-  return ( 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setScrolled(scrollTop > 10);
+      setShowScrollTop(scrollTop > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
     <LanguageProvider>
-      <div className="min-h-screen bg-accent"> 
-        <Navbar scrolled={scrolled} /> 
-        <Hero /> 
-        <About /> 
-        <Services /> 
-        <Store/>
-        <Activities />
-        <Portfolio /> 
-        <Contact /> 
-        <Footer /> 
-        <FloatingButtons showScrollTop={showScrollTop} /> 
-      </div> 
+      <div className="App min-h-screen w-full overflow-x-hidden" style={{ margin: 0, padding: 0 }}>
+        <Navbar scrolled={scrolled} />
+        <main className="w-full overflow-x-hidden">
+          <Hero />
+          <About />
+          <Services />
+          <Activities />
+          <Store />
+          <Portfolio />
+          <Contact />
+        </main>
+        <Footer />
+        <FloatingButtons showScrollTop={showScrollTop} />
+      </div>
     </LanguageProvider>
-  ); 
+  );
 } 
  
 export default App;

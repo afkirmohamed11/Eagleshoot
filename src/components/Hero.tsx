@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Hero: React.FC = () => {
@@ -16,29 +16,14 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center">
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {images.map((image, index) => (
-          <motion.div
-            key={image}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ 
-              opacity: currentImage === index ? 1 : 0 
-            }}
-            transition={{ duration: 1 }}
-          >
-            <img
-              src={image}
-              alt={`Photography background ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 hero-gradient opacity-80"></div>
-          </motion.div>
-        ))}
-      </div>
-     
-      <div className="container z-10 py-12 sm:py-20">
+    <section 
+      id="home" 
+      className="relative min-h-screen flex items-center justify-center hero-gradient w-full overflow-x-hidden"
+      style={{ marginTop: 0, paddingTop: '4rem' }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      
+      <div className="container relative z-10 text-center text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <motion.div
             className="w-full md:w-1/2 text-white text-center md:text-left"
