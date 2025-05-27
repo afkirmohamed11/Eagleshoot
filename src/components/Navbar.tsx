@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSelector from './LanguageSelector';
 
@@ -56,14 +56,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         {/* Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl"
+          className={`flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl ${
+            currentLanguage === 'ar' ? 'flex-row-reverse' : ''
+          }`}
         >
           <img src="/eagle-icon.svg" alt="Eagle Shoot Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
           <span>Eagle Shoot</span>
         </a>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className={`hidden md:flex items-center ${
+          currentLanguage === 'ar' ? 'space-x-reverse space-x-8' : 'space-x-8'
+        }`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -77,7 +81,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         </div>
         
         {/* Mobile Navigation Toggle Button */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className={`md:hidden flex items-center ${
+          currentLanguage === 'ar' ? 'flex-row-reverse gap-4' : 'gap-4'
+        }`}>
           <LanguageSelector />
           <button 
             className="menu-button text-secondary z-50 p-2 hover:bg-gray-100 rounded-full transition-colors duration-300"
@@ -91,18 +97,21 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       
       {/* Mobile Navigation Menu */}
       <div 
-        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
+        className={`mobile-menu md:hidden fixed top-[60px] ${
+          currentLanguage === 'ar' ? 'right-0 left-0' : 'left-0 right-0'
+        } bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
           isOpen ? 'open' : ''
         }`}
+        dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
       >
-        <div className={`flex flex-col space-y-4 py-4 px-6 ${
+        <div className={`flex flex-col py-4 px-6 ${
           currentLanguage === 'ar' ? 'items-end' : 'items-start'
         }`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-2 w-full ${
+              className={`text-secondary hover:text-primary font-medium transition-colors duration-300 py-3 w-full block ${
                 currentLanguage === 'ar' ? 'text-right' : 'text-left'
               }`}
               onClick={() => setIsOpen(false)}

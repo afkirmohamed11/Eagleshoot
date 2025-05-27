@@ -3,29 +3,29 @@ import React from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Footer: React.FC = () => {
-  const { t, language } = useLanguage(); // Access language and translation function
+  const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-secondary text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
-          <div className={language === 'ar' ? 'text-right' : 'text-left'}>
+          <div className={`${language === 'ar' ? 'text-right sm:col-span-2 lg:col-span-1' : 'text-left'}`}>
             <div className={`flex items-center ${language === 'ar' ? 'justify-end' : 'justify-start'} gap-2 mb-6`}>
               {language === 'ar' ? (
                 <>
-                  <span className="font-serif font-bold text-2xl">Eagle Shoot</span>
+                  <span className="font-serif font-bold text-xl sm:text-2xl">Eagle Shoot</span>
                   <Camera size={28} />
                 </>
               ) : (
                 <>
                   <Camera size={28} />
-                  <span className="font-serif font-bold text-2xl">Eagle Shoot</span>
+                  <span className="font-serif font-bold text-xl sm:text-2xl">Eagle Shoot</span>
                 </>
               )}
             </div>
-            <p className="text-gray-300 mb-6">{t('footer.description')}</p>
+            <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">{t('footer.description')}</p>
             <div className={`flex gap-4 ${language === 'ar' ? 'justify-end' : 'justify-start'}`}>
               <a
                 href="https://web.facebook.com/profile.php?id=100068582700441&locale=fr_FR"
@@ -110,9 +110,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links Section */}
-          <div className={language === 'ar' ? 'text-right' : 'text-left'}>
-            <h3 className="text-xl font-semibold mb-6">{t('footer.quickLinks.title')}</h3>
-            <ul className="space-y-3">
+          <div className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('footer.quickLinks.title')}</h3>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a href="#home" className="text-gray-300 hover:text-primary transition-colors duration-300">
                   {t('nav.home')}
@@ -152,9 +152,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Services Section */}
-          <div className={language === 'ar' ? 'text-right' : 'text-left'}>
-            <h3 className="text-xl font-semibold mb-6">{t('footer.services.title')}</h3>
-            <ul className="space-y-3">
+          <div className={`${language === 'ar' ? 'text-right' : 'text-left'}`}>
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('footer.services.title')}</h3>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a href="#services" className="text-gray-300 hover:text-primary transition-colors duration-300">
                   {t('services.wedding.title')}
@@ -183,19 +183,19 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Info Section - Added responsive width for Arabic */}
-          <div className={`mb-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>
-            <h3 className="text-xl font-semibold mb-8">{t('footer.contactInfo.title')}</h3>
-            <ul className="space-y-5">
-              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
-                <Phone size={20} className="mt-1 flex-shrink-0" />
-                <a href="tel:+212605921443" className="text-gray-300 hover:text-primary transition-colors duration-300">
+          {/* Contact Info Section */}
+          <div className={`${language === 'ar' ? 'text-right sm:col-span-2 lg:col-span-1' : 'text-left'}`}>
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('footer.contactInfo.title')}</h3>
+            <ul className="space-y-4 sm:space-y-5">
+              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-3 sm:gap-4`}>
+                <Phone size={18} className="mt-1 flex-shrink-0 sm:w-5 sm:h-5" />
+                <a href="tel:+212605921443" className="text-gray-300 hover:text-primary transition-colors duration-300 text-sm sm:text-base">
                   +212 60-5921443
                 </a>
               </li>
-              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-4`}>
-                <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span className="text-gray-300 break-words">
+              <li className={`flex items-start ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'} gap-3 sm:gap-4`}>
+                <MapPin size={18} className="mt-1 flex-shrink-0 sm:w-5 sm:h-5" />
+                <span className="text-gray-300 break-words text-sm sm:text-base">
                   {language === 'ar' ? 'إمزورن، المغرب' : language === 'fr' ? 'Imzouren, Maroc' : 'Imzouren, Morocco'}
                 </span>
               </li>
@@ -204,8 +204,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-gray-700 pt-8">
-          <p className={`text-center text-gray-400 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+        <div className="border-t border-gray-700 pt-6 sm:pt-8">
+          <p className={`text-center text-gray-400 text-sm sm:text-base ${language === 'ar' ? 'rtl' : 'ltr'}`}>
             {language === 'ar' 
               ? `© ${currentYear} إيجل شوت للتصوير. جميع الحقوق محفوظة.`
               : language === 'fr'

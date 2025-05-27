@@ -315,6 +315,10 @@ export const translations = {
     'services.equipment.features.lenses': 'Objectifs',
     'services.equipment.features.lighting': 'Équipement d\'éclairage',
     'services.equipment.features.tripods': 'Trépieds et plus',
+            // Button texts
+    'services.showMore': 'Afficher plus',
+    'services.showLess': 'Afficher moins',
+    'services.bookNow': 'Réservez maintenant',
     // Section Magasin
     // Portfolio Section
     'portfolio.title': 'Notre Portfolio',
