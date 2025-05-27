@@ -21,46 +21,39 @@ html {
   }
 }
 
-/* RTL Support */
-[dir="rtl"] {
+/* Selective RTL Support - Exclude problematic sections */
+[dir="rtl"]:not(#activities):not(.activities-section):not(#portfolio):not(.portfolio-section) {
   text-align: right;
 }
 
-[dir="rtl"] .flex {
+/* Apply RTL flex only to safe elements */
+[dir="rtl"] .navbar .flex,
+[dir="rtl"] .footer .flex,
+[dir="rtl"] .hero .flex,
+[dir="rtl"] .about .flex,
+[dir="rtl"] .contact .flex,
+[dir="rtl"] .services .flex:not(.service-grid) {
   flex-direction: row-reverse;
 }
 
-[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 1;
-}
-
-[dir="rtl"] .text-left {
+/* Safe RTL text alignment */
+[dir="rtl"] .text-left:not(#activities *):not(.activities-section *) {
   text-align: right;
 }
 
-[dir="rtl"] .text-right {
+[dir="rtl"] .text-right:not(#activities *):not(.activities-section *) {
   text-align: left;
 }
 
-[dir="rtl"] .mr-2 {
+/* Safe RTL margins */
+[dir="rtl"] .mr-2:not(#activities *):not(.activities-section *) {
   margin-right: 0;
   margin-left: 0.5rem;
 }
 
-[dir="rtl"] .ml-2 {
+[dir="rtl"] .ml-2:not(#activities *):not(.activities-section *) {
   margin-left: 0;
   margin-right: 0.5rem;
-}
-
-[dir="rtl"] .gap-4,
-[dir="rtl"] .gap-6,
-[dir="rtl"] .gap-8,
-[dir="rtl"] .gap-12 {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 1;
 }
 
 /* Responsive Images */
@@ -86,7 +79,7 @@ img {
     transform: translateX(0);
   }
 
-  /* Fix mobile menu items for RTL - FORCE VERTICAL LAYOUT */
+  /* Force vertical layout for mobile menu */
   .mobile-menu .flex-col {
     display: flex !important;
     flex-direction: column !important;
@@ -105,13 +98,24 @@ img {
     display: block !important;
   }
 
-  /* Mobile specific typography adjustments */
   .mobile-menu a {
     font-size: 1rem;
-    padding: 0.75rem 0;
+    padding: 1rem 1.5rem !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: block !important;
     width: 100% !important;
+    min-height: 48px !important;
+    line-height: 1.5 !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(230, 57, 70, 0.1) !important;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu a:focus,
+  .mobile-menu a:active {
+    background-color: rgba(230, 57, 70, 0.05) !important;
+    color: var(--primary) !important;
   }
 
   .mobile-menu a:last-child {
@@ -239,22 +243,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Enhanced RTL Support for Mobile */
+/* Enhanced RTL Support for Mobile - Safe selectors only */
 @media (max-width: 768px) {
-  [dir="rtl"] .container {
+  [dir="rtl"] .container:not(#activities .container):not(.activities-section .container) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  [dir="rtl"] .flex {
+  [dir="rtl"] .justify-between:not(#activities *):not(.activities-section *) {
     flex-direction: row-reverse;
   }
 
-  [dir="rtl"] .justify-between {
-    flex-direction: row-reverse;
-  }
-
-  [dir="rtl"] .items-center {
+  [dir="rtl"] .items-center:not(#activities *):not(.activities-section *) {
     align-items: center;
   }
 
@@ -264,15 +264,103 @@ h1, h2, h3, h4, h5, h6 {
     right: auto !important;
   }
 
-  /* Mobile specific spacing fixes */
-  [dir="rtl"] .gap-4 {
-    gap: 1rem;
-    flex-direction: column;
-  }
-
-  [dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  /* Safe mobile spacing fixes */
+  [dir="rtl"] .space-x-8:not(#activities *):not(.activities-section *) > :not([hidden]) ~ :not([hidden]) {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
+}
+
+/* Activities and Portfolio sections: Force LTR layout, RTL text only */
+[dir="rtl"] #activities,
+[dir="rtl"] .activities-section,
+[dir="rtl"] #portfolio,
+[dir="rtl"] .portfolio-section {
+  direction: ltr;
+}
+
+/* Center Activities section titles and content for RTL */
+[dir="rtl"] #activities .text-center,
+[dir="rtl"] .activities-section .text-center {
+  text-align: center !important;
+  direction: rtl;
+}
+
+[dir="rtl"] #activities h1,
+[dir="rtl"] #activities h2,
+[dir="rtl"] #activities h3,
+[dir="rtl"] #activities p,
+[dir="rtl"] #activities span,
+[dir="rtl"] .activities-section h1,
+[dir="rtl"] .activities-section h2,
+[dir="rtl"] .activities-section h3,
+[dir="rtl"] .activities-section p,
+[dir="rtl"] .activities-section span {
+  direction: rtl;
+  text-align: center;
+}
+
+/* Reduce margin between Activities and Store sections */
+#activities {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  #activities {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #activities {
+    margin-bottom: 4rem;
+  }
+}
+
+#store {
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  #store {
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #store {
+    margin-top: 4rem;
+  }
+}
+
+/* Specific RTL fixes for safe components */
+[dir="rtl"] .navbar .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer .flex {
+  flex-direction: row-reverse;
+}
+
+/* Service cards: preserve grid but adjust text */
+[dir="rtl"] .services .service-card h3,
+[dir="rtl"] .services .service-card p,
+[dir="rtl"] .services .service-card span {
+  text-align: right;
+}
+
+/* Store cards: preserve layout but adjust text */
+[dir="rtl"] .store .store-card h3,
+[dir="rtl"] .store .store-card p,
+[dir="rtl"] .store .store-card span {
+  text-align: right;
 }

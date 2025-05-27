@@ -19,6 +19,10 @@ const FloatingButtons: React.FC<FloatingButtonsProps> = ({ showScrollTop }) => {
       className={`floating-buttons fixed bottom-6 flex flex-col gap-4 z-50 ${
         isRTL ? 'left-4 sm:left-6' : 'right-4 sm:right-6'
       }`}
+      style={{
+        [isRTL ? 'left' : 'right']: isRTL ? '1.5rem' : '1.5rem',
+        [isRTL ? 'right' : 'left']: 'auto'
+      }}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* WhatsApp Button */}

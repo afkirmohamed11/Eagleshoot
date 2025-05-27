@@ -51,6 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       className={`navbar fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'py-2 shadow-md' : 'py-4'
       }`}
+      dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="container flex justify-between items-center">
         {/* Logo */}
@@ -65,8 +66,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         </a>
         
         {/* Desktop Navigation */}
-        <div className={`hidden md:flex items-center ${
-          currentLanguage === 'ar' ? 'space-x-reverse space-x-8' : 'space-x-8'
+        <div className={`hidden md:flex items-center gap-8 ${
+          currentLanguage === 'ar' ? 'flex-row-reverse' : ''
         }`}>
           {navLinks.map((link) => (
             <a
@@ -81,8 +82,8 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         </div>
         
         {/* Mobile Navigation Toggle Button */}
-        <div className={`md:hidden flex items-center ${
-          currentLanguage === 'ar' ? 'flex-row-reverse gap-4' : 'gap-4'
+        <div className={`md:hidden flex items-center gap-4 ${
+          currentLanguage === 'ar' ? 'flex-row-reverse' : ''
         }`}>
           <LanguageSelector />
           <button 
@@ -97,22 +98,14 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       
       {/* Mobile Navigation Menu */}
       <div 
-        className={`mobile-menu md:hidden fixed top-[60px] ${
-          currentLanguage === 'ar' ? 'right-0 left-0' : 'left-0 right-0'
-        } bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
+        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-300 ease-in-out ${
           isOpen ? 'open' : ''
         }`}
         dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
       >
-        <div className={`flex flex-col py-4 px-6 space-y-0 ${
+        <div className={`flex flex-col py-4 px-6 ${
           currentLanguage === 'ar' ? 'items-end' : 'items-start'
-        }`}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: currentLanguage === 'ar' ? 'flex-end' : 'flex-start'
-        }}
-        >
+        }`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -121,11 +114,6 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
                 currentLanguage === 'ar' ? 'text-right' : 'text-left'
               }`}
               onClick={() => setIsOpen(false)}
-              style={{
-                display: 'block',
-                width: '100%',
-                textAlign: currentLanguage === 'ar' ? 'right' : 'left'
-              }}
             >
               {link.name}
             </a>

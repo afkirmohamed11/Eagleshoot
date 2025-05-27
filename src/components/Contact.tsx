@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Contact: React.FC = () => {
@@ -10,12 +10,13 @@ const Contact: React.FC = () => {
     threshold: 0.1,
   });
 
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'ar';
 
   return (
-    <section id="contact" className="py-12 sm:py-20 bg-gray-50">
+    <section id="contact" className="py-12 sm:py-20 bg-gray-50" dir={isRTL ? 'rtl' : 'ltr'}>
       <div className="container">
-        <div className="text-center mb-8 sm:mb-16">
+        <div className={`text-center mb-8 sm:mb-16 ${isRTL ? 'rtl' : ''}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-secondary font-serif mb-3 sm:mb-4">
             {t('contact.title')}
           </h2>
@@ -24,7 +25,9 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 max-w-5xl mx-auto">
+        <div className={`flex flex-col lg:flex-row gap-8 sm:gap-12 max-w-5xl mx-auto ${
+          isRTL ? 'lg:flex-row-reverse' : ''
+        }`}>
           <motion.div 
             className="lg:w-1/2"
             ref={ref}
@@ -32,23 +35,29 @@ const Contact: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-secondary font-serif">
+            <h3 className={`text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-secondary font-serif ${
+              isRTL ? 'text-right' : 'text-left'
+            }`}>
               {t('contact.getintouch')}
             </h3>
-            <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+            <p className={`text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base ${
+              isRTL ? 'text-right' : 'text-left'
+            }`}>
               {t('contact.message')}
             </p>
 
             <div className="space-y-6 sm:space-y-8">
               <a 
                 href="tel:+212605921443" 
-                className="flex items-center gap-4 sm:gap-6 group cursor-pointer"
+                className={`flex items-center gap-4 sm:gap-6 group cursor-pointer ${
+                  isRTL ? 'flex-row-reverse' : ''
+                }`}
                 aria-label="Call us"
               >
                 <div className="p-3 sm:p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-white transition-colors duration-300" />
                 </div>
-                <div>
+                <div className={isRTL ? 'text-right' : 'text-left'}>
                   <h4 className="text-lg sm:text-xl font-semibold text-secondary">{t('contact.phone')}</h4>
                   <p className="text-gray-600 text-base sm:text-lg">+212 60-5921443</p>
                 </div>
