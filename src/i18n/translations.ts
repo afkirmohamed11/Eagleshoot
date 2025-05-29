@@ -167,7 +167,8 @@ export const translations = {
 'portfolio.categories.commercial': 'Commercial',
 'portfolio.items.wedding': 'Elegant Wedding',
 'portfolio.items.portrait': 'Professional Portrait',
-'portfolio.items.corporate': 'Corporate Event',
+'portfolio.items.mobadara': 'Celebration activities of the 20th anniversary of the launch of the National Initiative for Human Development',
+'portfolio.items.corporate':'Opening of the youth and women’s initiatives space in Al Hoceima',
 'portfolio.items.product': 'Product Photography',
 'portfolio.items.concert': 'Music Concert',
 
@@ -330,7 +331,8 @@ export const translations = {
 'portfolio.categories.commercial': 'Commercial',
 'portfolio.items.wedding': 'Mariage Élégant',
 'portfolio.items.portrait': 'Portrait Professionnel',
-'portfolio.items.corporate': 'Événement d\'Entreprise',
+'portfolio.items.corporate': 'Ouverture de l\’espace des initiatives jeunesse et féminines à Al Hoceïma',
+'portfolio.items.mobadara':'Activités de célébration du 20e anniversaire du lancement de l\’Initiative Nationale pour le Développement Humain',
 'portfolio.items.product': 'Photographie de Produit',
 'portfolio.items.concert': 'Concert de Musique',
 
@@ -512,7 +514,8 @@ export const translations = {
     'portfolio.categories.commercial': 'تجاري',
     'portfolio.items.wedding': 'زفاف أنيق',
     'portfolio.items.portrait': 'صورة شخصية احترافية',
-    'portfolio.items.corporate': 'فعالية شركة',
+    'portfolio.items.mobadara': 'فعاليات الاحتفال بالذكرى 20 لإطلاق المبادرة الوطنية للتنمية البشرية',
+    'portfolio.items.corporate':'افتتاح فضاء المبادرات الشبابية و النسائية بالحسيمة',
     'portfolio.items.product': 'تصوير منتجات',
     'portfolio.items.concert': 'حفل موسيقي',
 

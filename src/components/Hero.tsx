@@ -5,7 +5,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const [currentImage, setCurrentImage] = useState(0);
-  const images = ['/our_story2.jpg', '/our_story3.jpg', '/our_story4.jpg'];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = ['/our_story2.jpg', '/our_story3.jpg', '/our_story4.jpg', '/our_story5.jpg'];
+  const backgroundImages = ['/our_story2.jpg', '/our_story3.jpg',  '/our_story4.jpg', '/our_story5.jpg'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,15 +17,43 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   return (
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center hero-gradient w-full overflow-x-hidden"
       style={{ marginTop: 0, paddingTop: '4rem' }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      {/* Background Images */}
+      {backgroundImages.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img
+            src={image}
+            alt={`Background ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
       
-      <div className="container relative z-10 text-center text-white">
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/50"></div>
+      
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
           <motion.div
             className="w-full md:w-1/2 text-white text-center md:text-left"
@@ -59,11 +89,11 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <img 
+            {/* <img 
               src="/eagle-icon.svg" 
               alt="Eagle Shoot Logo" 
               className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72"
-            />
+            /> */}
           </motion.div>
         </div>
       </div>

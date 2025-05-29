@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -36,7 +36,7 @@ const Portfolio: React.FC = () => {
     {
       id: 3,
       category: 'event',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+      image: '/event1.jpg',
       title: t('portfolio.items.corporate'),
     },
     {
@@ -48,8 +48,38 @@ const Portfolio: React.FC = () => {
     {
       id: 7,
       category: 'event',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80',
-      title: t('portfolio.items.concert'),
+      image: '/event2.jpg',
+      title: t('portfolio.items.corporate'),
+    },
+    {
+      id: 16,
+      category: 'event',
+      image: '/event3.jpg',
+      title: t('portfolio.items.mobadara'),
+    },
+    {
+      id: 17,
+      category: 'event',
+      image: '/event4.jpg',
+      title: t('portfolio.items.mobadara'),
+    },
+    {
+      id: 18,
+      category: 'event',
+      image: '/event5.jpg',
+      title: t('portfolio.items.mobadara'),
+    },
+    {
+      id: 19,
+      category: 'event',
+      image: '/event6.jpg',
+      title: t('portfolio.items.mobadara'),
+    },
+    {
+      id: 20,
+      category: 'event',
+      image: '/event7.jpg',
+      title: t('portfolio.items.corporate'),
     },
     {
       id: 9,
@@ -80,7 +110,7 @@ const Portfolio: React.FC = () => {
       category: 'commercial',
       image: '/food3.jpg',
       title: t('portfolio.items.product'),
-    }
+    },
   ];
 
   const filteredItems = activeCategory === 'all' 
