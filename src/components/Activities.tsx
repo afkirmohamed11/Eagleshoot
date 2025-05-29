@@ -15,12 +15,12 @@ const Activities: React.FC = () => {
 
   // Exhibition images
   const exhibitionImages = [
-    '/hoceima1.jpg',
+    '/hoceima6.jpg',
     '/hoceima2.jpg',
     '/hoceima3.jpg',
     '/hoceima4.jpg',
     '/hoceima5.jpg',
-    '/hoceima6.jpg',
+    '/hoceima1.jpg',
   ];
 
   const handlePrevImage = () => {
