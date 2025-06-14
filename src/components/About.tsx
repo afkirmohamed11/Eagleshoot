@@ -1,7 +1,7 @@
-import React from 'react'; 
-import { motion } from 'framer-motion'; 
-import { useInView } from 'react-intersection-observer'; 
-import { Camera, Award, Clock, Users } from 'lucide-react'; 
+import { motion } from 'framer-motion';
+import { Award, Camera, Clock, Users } from 'lucide-react';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../i18n/LanguageContext';
  
 const About: React.FC = () => { 
@@ -36,11 +36,11 @@ const About: React.FC = () => {
   ]; 
  
   return ( 
-    <section id="about" className="py-20"> 
+    <section id="about" className="py-20 dark:bg-gray-900 transition-colors duration-300"> 
       <div className="container mx-auto px-4"> 
         <div className="text-center mb-16"> 
-          <h2 className="section-title">{t('about.title')}</h2> 
-          <p className="section-subtitle"> 
+          <h2 className="section-title dark:text-white">{t('about.title')}</h2> 
+          <p className="section-subtitle dark:text-gray-300"> 
             {t('about.subtitle')}
           </p> 
         </div> 
@@ -66,16 +66,16 @@ const About: React.FC = () => {
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }} 
             transition={{ duration: 0.8 }} 
           > 
-            <h3 className="text-3xl font-bold mb-6 text-secondary font-serif">{t('about.story.title')}</h3>
+            <h3 className="text-3xl font-bold mb-6 text-secondary dark:text-white font-serif">{t('about.story.title')}</h3>
             <p className="text-xl font-semibold mb-6 text-primary">
               {t('about.story.headline')}
             </p>
             {t('about.story.content').split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-lg mb-6 text-gray-700">
+              <p key={index} className="text-lg mb-6 text-gray-700 dark:text-gray-400">
                 {paragraph}
               </p>
             ))}
-            <p className="text-lg mb-8 text-gray-700">
+            <p className="text-lg mb-8 text-gray-700 dark:text-gray-400">
               {t('about.story.specialization')}
             </p>
           </motion.div>
@@ -92,8 +92,8 @@ const About: React.FC = () => {
             > 
               <div className="mt-1">{feature.icon}</div> 
               <div> 
-                <h4 className="text-xl font-semibold mb-2 text-secondary">{feature.title}</h4> 
-                <p className="text-gray-600">{feature.description}</p> 
+                <h4 className="text-xl font-semibold mb-2 text-secondary dark:text-white">{feature.title}</h4> 
+                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p> 
               </div> 
             </motion.div> 
           ))} 

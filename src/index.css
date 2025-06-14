@@ -10,6 +10,39 @@
   --background: #f1faee;
 }
 
+/* Dark mode variables */
+.dark {
+  --primary: #e63946;
+  --secondary: #f1faee;
+  --accent: #1d3557;
+  --text: #f1faee;
+  --background: #1a1a1a;
+}
+
+/* Dark mode for body and html */
+.dark body {
+  background-color: #1a1a1a;
+  color: #f1faee;
+}
+
+/* Dark mode scrollbar */
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
 /* Base Responsive Styles */
 html {
   font-size: 16px;

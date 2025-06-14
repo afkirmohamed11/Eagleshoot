@@ -1,18 +1,18 @@
-import React, { useState } from 'react';  
-import { motion } from 'framer-motion';  
-import { useInView } from 'react-intersection-observer';  
-import { 
-  Users, 
-  Heart, 
-  Building, 
-  User, 
-  Camera, 
-  Calendar, 
-  Scissors, 
-  Globe, 
-  Share2, 
-  ShoppingBag 
-} from 'lucide-react';  
+import { motion } from 'framer-motion';
+import {
+    Building,
+    Calendar,
+    Camera,
+    Globe,
+    Heart,
+    Scissors,
+    Share2,
+    ShoppingBag,
+    User,
+    Users
+} from 'lucide-react';
+import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Services: React.FC = () => {  
@@ -157,10 +157,10 @@ const Services: React.FC = () => {
   };  
 
   return (  
-    <section id="services" className="py-12 sm:py-20 bg-gray-50">  
+    <section id="services" className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">  
       <div className="container text-center">  
-        <h2 className="section-title">{t('services.title')}</h2>  
-        <p className="section-subtitle mb-12 sm:mb-16">{t('services.subtitle')}</p>  
+        <h2 className="section-title dark:text-white">{t('services.title')}</h2>  
+        <p className="section-subtitle mb-12 sm:mb-16 dark:text-gray-300">{t('services.subtitle')}</p>  
         
         <motion.div 
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" 
@@ -172,15 +172,15 @@ const Services: React.FC = () => {
           {(showAll ? services : services.slice(0, 6)).map((service, index) => (  
             <motion.div 
               key={index} 
-              className="bg-white rounded-lg shadow-lg overflow-hidden service-card h-full" 
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden service-card h-full transition-colors duration-300" 
               variants={itemVariants}
             >  
               <div className="p-6 sm:p-8">  
                 <div className="flex justify-center">{service.icon}</div>  
-                <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 sm:mb-4 font-serif text-secondary">
+                <h3 className="text-xl sm:text-2xl font-bold text-center mb-3 sm:mb-4 font-serif text-secondary dark:text-white">
                   {service.title}
                 </h3>  
-                <p className="text-gray-600 text-center mb-4 sm:mb-6 text-sm sm:text-base">
+                <p className="text-gray-600 dark:text-gray-300 text-center mb-4 sm:mb-6 text-sm sm:text-base">
                   {service.description}
                 </p>  
                 <ul className={`space-y-2 sm:space-y-3 mb-6 sm:mb-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>  
@@ -190,13 +190,13 @@ const Services: React.FC = () => {
                       className={`flex items-center text-sm sm:text-base ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}
                     >  
                       <span className={`w-2 h-2 bg-primary rounded-full ${language === 'ar' ? 'ml-3' : 'mr-3'}`}></span>  
-                      <span className="text-gray-700">{feature}</span>  
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>  
                     </li>  
                   ))}  
                 </ul>  
                 <a 
                   href="https://wa.me/212605921443" 
-                  className="block text-center bg-secondary hover:bg-primary text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-md transition-colors duration-300 text-sm sm:text-base"
+                  className="block text-center bg-secondary hover:bg-primary dark:bg-gray-600 dark:hover:bg-primary text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-md transition-colors duration-300 text-sm sm:text-base"
                 >
                   {t('services.bookNow')}
                 </a>  

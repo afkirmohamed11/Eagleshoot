@@ -1,11 +1,11 @@
-import React from 'react'; 
-import { motion } from 'framer-motion'; 
-import { useInView } from 'react-intersection-observer'; 
-import { useLanguage } from '../i18n/LanguageContext'; 
+import { motion } from 'framer-motion';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../i18n/LanguageContext';
  
 const Store: React.FC = () => { 
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 }); 
-  const { t, language } = useLanguage(); // Get translation and language 
+  const { t } = useLanguage(); // Get translation function 
  
   // Store items (expanded with new cameras)
   const storeItems = [ 
@@ -47,13 +47,12 @@ const Store: React.FC = () => {
     hidden: { opacity: 0, y: 20 }, 
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, 
   }; 
- 
-  return ( 
-    <section id="store" className="py-20 bg-gray-50"> 
+   return ( 
+    <section id="store" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"> 
       <div className="container mx-auto px-4 text-center"> 
         {/* Section Title and Subtitle */} 
-        <h2 className="section-title">{t('store.title')}</h2> 
-        <p className="section-subtitle mb-16">{t('store.subtitle')}</p> 
+        <h2 className="section-title dark:text-white">{t('store.title')}</h2> 
+        <p className="section-subtitle mb-16 dark:text-gray-300">{t('store.subtitle')}</p>
  
         {/* Store Items Grid */} 
         <motion.div 
@@ -63,10 +62,9 @@ const Store: React.FC = () => {
           initial="hidden" 
           animate={inView ? 'visible' : 'hidden'} 
         > 
-          {storeItems.map((item, index) => ( 
-            <motion.div 
+          {storeItems.map((item, index) => (            <motion.div 
               key={index} 
-              className="bg-white rounded-lg shadow-lg overflow-hidden" 
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-colors duration-300" 
               variants={itemVariants} 
             > 
               <div className="p-8"> 
@@ -80,23 +78,22 @@ const Store: React.FC = () => {
                 </div> 
  
                 {/* Product Title */} 
-                <h3 className="text-2xl font-bold text-center mb-4 font-serif text-secondary"> 
+                <h3 className="text-2xl font-bold text-center mb-4 font-serif text-secondary dark:text-white"> 
                   {item.title} 
                 </h3> 
  
                 {/* Product Description */} 
-                <p className="text-gray-600 text-center mb-4">{item.description}</p> 
+                <p className="text-gray-600 dark:text-gray-300 text-center mb-4">{item.description}</p>
  
-                {/* Prices Container */} 
-                <div className="flex justify-center gap-6 mb-6"> 
+                {/* Prices Container */}                <div className="flex justify-center gap-6 mb-6"> 
                   {/* Buy Price */} 
                   <div> 
-                    <p className="text-sm text-gray-500">{t('store.camera.buyLabel')}</p> 
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('store.camera.buyLabel')}</p> 
                     <p className="text-lg font-semibold text-primary">{item.buyPrice}</p> 
                   </div> 
                   {/* Borrow Price */} 
                   <div> 
-                    <p className="text-sm text-gray-500">{t('store.camera.borrowLabel')}</p> 
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{t('store.camera.borrowLabel')}</p> 
                     <p className="text-lg font-semibold text-primary">{item.borrowPrice}</p> 
                   </div> 
                 </div> 
@@ -106,8 +103,8 @@ const Store: React.FC = () => {
                   href={item.whatsappLink} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="block text-center bg-secondary hover:bg-primary text-white font-medium py-3 px-6 rounded-md transition-colors duration-300" 
-                > 
+                  className="block text-center bg-secondary hover:bg-primary dark:bg-gray-600 dark:hover:bg-primary text-white font-medium py-3 px-6 rounded-md transition-colors duration-300" 
+                >
                   {item.buttonText} 
                 </a> 
               </div> 

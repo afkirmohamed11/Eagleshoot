@@ -10,6 +10,7 @@ import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import Store from './components/Store';
 import { LanguageProvider } from './i18n/LanguageContext';
+import { ThemeProvider } from './i18n/ThemeContext';
  
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,24 +26,25 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
-    <LanguageProvider>
-      <div className="App min-h-screen w-full overflow-x-hidden" style={{ margin: 0, padding: 0 }}>
-        <Navbar scrolled={scrolled} />
-        <main className="w-full overflow-x-hidden">
-          <Hero />
-          <About />
-          <Services />
-          <Activities />
-          <Store />
-          <Portfolio />
-          <Contact />
-        </main>
-        <Footer />
-        <FloatingButtons showScrollTop={showScrollTop} />
-      </div>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <div className="App min-h-screen w-full overflow-x-hidden dark:bg-gray-900 transition-colors duration-300" style={{ margin: 0, padding: 0 }}>
+          <Navbar scrolled={scrolled} />
+          <main className="w-full overflow-x-hidden">
+            <Hero />
+            <About />
+            <Services />
+            <Activities />
+            <Store />
+            <Portfolio />
+            <Contact />
+          </main>
+          <Footer />
+          <FloatingButtons showScrollTop={showScrollTop} />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 } 
  

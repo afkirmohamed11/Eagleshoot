@@ -2,14 +2,14 @@ import { Menu, X } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSelector from './LanguageSelector';
+import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   scrolled: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { t, currentLanguage } = useLanguage();
+const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {  const [isOpen, setIsOpen] = useState(false);
+  const { t, language } = useLanguage();
   
   // Optimized click outside handler
   useEffect(() => {
@@ -70,19 +70,17 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
     { name: t('nav.contact'), href: '#contact' },
   ];
   
-  return (
-    <nav
-      className={`navbar fixed w-full z-50 transition-all duration-300 ${
+  return (    <nav
+      className={`navbar fixed w-full z-50 transition-all duration-300 bg-white dark:bg-gray-900 ${
         scrolled ? 'py-2 shadow-md' : 'py-4'
       }`}
-      dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
     >
       <div className="container flex justify-between items-center">
         {/* Logo */}
         <a
-          href="#home"
-          className={`flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl ${
-            currentLanguage === 'ar' ? 'flex-row-reverse' : ''
+          href="#home"          className={`flex items-center gap-2 text-primary font-serif font-bold text-xl sm:text-2xl ${
+            language === 'ar' ? 'flex-row-reverse' : ''
           }`}
           onClick={closeMenu}
         >
@@ -90,29 +88,28 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           <span>Eagle Shoot</span>
         </a>
         
-        {/* Desktop Navigation */}
-        <div className={`hidden md:flex items-center gap-8 ${
-          currentLanguage === 'ar' ? 'flex-row-reverse' : ''
+        {/* Desktop Navigation */}        <div className={`hidden md:flex items-center gap-8 ${
+          language === 'ar' ? 'flex-row-reverse' : ''
         }`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-secondary hover:text-primary font-medium transition-colors duration-300"
+              className="text-secondary dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-300"
             >
               {link.name}
             </a>
           ))}
+          <ThemeToggle />
           <LanguageSelector />
         </div>
         
-        {/* Mobile Navigation Toggle Button */}
-        <div className={`md:hidden flex items-center gap-4 ${
-          currentLanguage === 'ar' ? 'flex-row-reverse' : ''
+        {/* Mobile Navigation Toggle Button */}        <div className={`md:hidden flex items-center gap-4 ${
+          language === 'ar' ? 'flex-row-reverse' : ''
         }`}>
-          <LanguageSelector />
-          <button 
-            className="menu-button text-secondary z-50 p-2 hover:bg-gray-100 rounded-full transition-all duration-200"
+          <ThemeToggle />
+          <LanguageSelector />          <button
+            className="menu-button text-secondary dark:text-gray-300 z-50 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-all duration-200"
             onClick={toggleMenu}
             onTouchStart={(e) => e.preventDefault()}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -124,21 +121,19 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
       </div>
       
       {/* Mobile Navigation Menu */}
-      <div 
-        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white shadow-lg w-full h-auto transition-transform duration-200 ease-out ${
+      <div        className={`mobile-menu md:hidden fixed top-[60px] left-0 right-0 bg-white dark:bg-gray-900 shadow-lg w-full h-auto transition-transform duration-200 ease-out ${
           isOpen ? 'open' : ''
         }`}
-        dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'}
+        dir={language === 'ar' ? 'rtl' : 'ltr'}
       >
         <div className={`flex flex-col py-4 px-6 ${
-          currentLanguage === 'ar' ? 'items-end' : 'items-start'
+          language === 'ar' ? 'items-end' : 'items-start'
         }`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
-              className={`text-secondary hover:text-primary font-medium transition-colors duration-200 py-3 w-full block ${
-                currentLanguage === 'ar' ? 'text-right' : 'text-left'
+              href={link.href}              className={`text-secondary dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200 py-3 w-full block ${
+                language === 'ar' ? 'text-right' : 'text-left'
               }`}
               onClick={closeMenu}
               onTouchStart={(e) => e.stopPropagation()}

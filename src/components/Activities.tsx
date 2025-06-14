@@ -34,13 +34,12 @@ const Activities: React.FC = () => {
       (prev + 1) % exhibitionImages.length
     );
   };
-
   return (
-    <section id="activities" className="py-20 bg-gray-50">
+    <section id="activities" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">{t('activities.title')}</h2>
-          <p className="section-subtitle">
+          <h2 className="section-title dark:text-white">{t('activities.title')}</h2>
+          <p className="section-subtitle dark:text-gray-300">
             {t('activities.subtitle')}
           </p>
         </div>
@@ -50,7 +49,7 @@ const Activities: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden"
+          className="max-w-5xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
         >
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 relative">
@@ -71,17 +70,16 @@ const Activities: React.FC = () => {
                   </div>
                 ))}
                 
-                {/* Navigation buttons */}
-                <button 
+                {/* Navigation buttons */}                <button 
                   onClick={handlePrevImage} 
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full text-secondary hover:bg-white transition-colors"
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/70 dark:bg-gray-800/70 p-2 rounded-full text-secondary dark:text-white hover:bg-white dark:hover:bg-gray-800 transition-colors"
                   aria-label="Previous image"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button 
                   onClick={handleNextImage} 
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full text-secondary hover:bg-white transition-colors"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/70 dark:bg-gray-800/70 p-2 rounded-full text-secondary dark:text-white hover:bg-white dark:hover:bg-gray-800 transition-colors"
                   aria-label="Next image"
                 >
                   <ChevronRight size={24} />
@@ -103,19 +101,18 @@ const Activities: React.FC = () => {
               </div>
             </div>
             
-            <div className={`lg:w-1/2 p-8 ${language === 'ar' ? 'text-right' : ''}`}>
-              <div className="flex items-center gap-2 mb-4">
+            <div className={`lg:w-1/2 p-8 ${language === 'ar' ? 'text-right' : ''}`}>              <div className="flex items-center gap-2 mb-4">
                 <Calendar className="text-primary w-6 h-6" />
-                <span className="text-gray-500 text-sm">
+                <span className="text-gray-500 dark:text-gray-400 text-sm">
                   {t('activities.exhibition.date')}
                 </span>
               </div>
               
-              <h3 className="text-2xl font-bold text-secondary mb-4 font-serif">
+              <h3 className="text-2xl font-bold text-secondary dark:text-white mb-4 font-serif">
                 {t('activities.exhibition.title')}
               </h3>
               
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-4 text-gray-700 dark:text-gray-300">
                 {t('activities.exhibition.content')
                   .split('\n\n')
                   .map((paragraph, idx) => (

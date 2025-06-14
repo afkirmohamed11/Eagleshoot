@@ -14,13 +14,13 @@ const Contact: React.FC = () => {
   const isRTL = language === 'ar';
 
   return (
-    <section id="contact" className="py-12 sm:py-20 bg-gray-50" dir={isRTL ? 'rtl' : 'ltr'}>
+    <section id="contact" className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300" dir={isRTL ? 'rtl' : 'ltr'}>
       <div className="container">
         <div className={`text-center mb-8 sm:mb-16 ${isRTL ? 'rtl' : ''}`}>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary font-serif mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-secondary dark:text-white font-serif mb-3 sm:mb-4">
             {t('contact.title')}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             {t('contact.subtitle')}
           </p>
         </div>
@@ -35,12 +35,12 @@ const Contact: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className={`text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-secondary font-serif ${
+            <h3 className={`text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-secondary dark:text-white font-serif ${
               isRTL ? 'text-right' : 'text-left'
             }`}>
               {t('contact.getintouch')}
             </h3>
-            <p className={`text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base ${
+            <p className={`text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base ${
               isRTL ? 'text-right' : 'text-left'
             }`}>
               {t('contact.message')}
@@ -54,12 +54,12 @@ const Contact: React.FC = () => {
                 }`}
                 aria-label="Call us"
               >
-                <div className="p-3 sm:p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-white transition-colors duration-300" />
+                <div className="p-3 sm:p-4 bg-white dark:bg-gray-600 rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div className={isRTL ? 'text-right' : 'text-left'}>
-                  <h4 className="text-lg sm:text-xl font-semibold text-secondary">{t('contact.phone')}</h4>
-                  <p className="text-gray-600 text-base sm:text-lg">+212 60-5921443</p>
+                  <h4 className="text-lg sm:text-xl font-semibold text-secondary dark:text-white">{t('contact.phone')}</h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">+212 60-5921443</p>
                 </div>
               </a>
               
@@ -68,12 +68,12 @@ const Contact: React.FC = () => {
                 className="flex items-center gap-4 sm:gap-6 group cursor-pointer"
                 aria-label="Email us"
               >
-                <div className="p-3 sm:p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-white transition-colors duration-300" />
+                <div className="p-3 sm:p-4 bg-white dark:bg-gray-600 rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg sm:text-xl font-semibold text-secondary">{t('contact.email')}</h4>
-                  <p className="text-gray-600 text-base sm:text-lg">eagleshot.photographer@gmail.com</p>
+                  <h4 className="text-lg sm:text-xl font-semibold text-secondary dark:text-white">{t('contact.email')}</h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">eagleshot.photographer@gmail.com</p>
                 </div>
               </a>
               
@@ -84,22 +84,22 @@ const Contact: React.FC = () => {
                 className="flex items-center gap-4 sm:gap-6 group cursor-pointer"
                 aria-label="View our location"
               >
-                <div className="p-3 sm:p-4 bg-white rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black group-hover:text-white transition-colors duration-300" />
+                <div className="p-3 sm:p-4 bg-white dark:bg-gray-600 rounded-full shadow-md flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black dark:text-white group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg sm:text-xl font-semibold text-secondary">{t('contact.address')}</h4>
-                  <p className="text-gray-600 text-base sm:text-lg">Imzouren, Al Hoceima</p>
+                  <h4 className="text-lg sm:text-xl font-semibold text-secondary dark:text-white">{t('contact.address')}</h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">Imzouren, Al Hoceima</p>
                 </div>
               </a>
             </div>
 
             <div className="mt-8 sm:mt-12">
-              <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-secondary">{t('contact.followus')}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-secondary dark:text-white">{t('contact.followus')}</h4>
               <div className="flex gap-3 sm:gap-4">
                 <a 
                   href="https://web.facebook.com/profile.php?id=100068582700441&locale=fr_FR" 
-                  className="p-2.5 sm:p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                  className="p-2.5 sm:p-3 bg-white dark:bg-gray-600 rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
                   aria-label="Facebook"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -108,7 +108,7 @@ const Contact: React.FC = () => {
                 </a>
                 <a 
                   href="https://www.instagram.com/eagleshoot_photographer?igsh=czV0a2Vtc2h2anV5" 
-                  className="p-2.5 sm:p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                  className="p-2.5 sm:p-3 bg-white dark:bg-gray-600 rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
                   aria-label="Instagram"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
                 </a>
                 <a 
                   href="https://www.youtube.com/@Eagleshoot_photographer" 
-                  className="p-2.5 sm:p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
+                  className="p-2.5 sm:p-3 bg-white dark:bg-gray-600 rounded-full shadow-md hover:bg-primary hover:text-white transition-colors duration-300"
                   aria-label="YouTube"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -137,12 +137,12 @@ const Contact: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} 
             transition={{ duration: 0.6, delay: 0.2 }} 
           > 
-            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-secondary font-serif">
+            <div className="bg-white dark:bg-gray-700 p-6 sm:p-8 rounded-xl shadow-lg transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-secondary dark:text-white font-serif">
                 {t('contact.title')}
               </h3>
               
-              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
                 {t('contact.message')}
               </p>
               
@@ -155,9 +155,9 @@ const Contact: React.FC = () => {
                 <Send className="w-5 h-5 sm:w-6 sm:h-6" /> {t('contact.whatsapp')}
               </a>
               
-              <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-100">
-                <h4 className="text-base sm:text-lg font-semibold mb-3 text-secondary">{t('contact.hours')}</h4>
-                <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
+              <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 dark:bg-gray-600 rounded-lg border border-gray-100 dark:border-gray-500 transition-colors duration-300">
+                <h4 className="text-base sm:text-lg font-semibold mb-3 text-secondary dark:text-white">{t('contact.hours')}</h4>
+                <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm sm:text-base">
                   <li className="flex justify-between">
                     <span>{t('contact.hours.weekdays')}:</span>
                     <span>9:00 AM - 6:00 PM</span>

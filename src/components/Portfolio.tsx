@@ -18,6 +18,7 @@ const Portfolio: React.FC = () => {
     { id: 'portrait', name: t('portfolio.categories.portrait') },
     { id: 'event', name: t('portfolio.categories.event') },
     { id: 'commercial', name: t('portfolio.categories.commercial') },
+    { id: 'nature', name: t('portfolio.categories.nature') },
   ];
 
   const portfolioItems = [
@@ -110,6 +111,24 @@ const Portfolio: React.FC = () => {
       category: 'commercial',
       image: '/food3.jpg',
       title: t('portfolio.items.product'),
+    },
+    {
+      id: 21,
+      category: 'nature',
+      image: '/owl.jpg',
+      title: t('portfolio.items.owl'),
+    },
+    {
+      id: 22,
+      category: 'nature',
+      image: '/orange.jpg',
+      title: t('portfolio.items.orange'),
+    },
+    {
+      id: 23,
+      category: 'nature',
+      image: '/flower.jpg',
+      title: t('portfolio.items.flower'),
     },
   ];
 
