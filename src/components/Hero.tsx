@@ -10,12 +10,13 @@ const Hero: React.FC = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center hero-gradient w-full overflow-x-hidden"
       style={{ marginTop: 0, paddingTop: '4rem' }}
-    >      {/* Background Image */}
-      <div className="absolute inset-0">
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 bg-gray-900">
         <img
           src="/eyes.jpg"
           alt="Eagle Shoot Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain object-center" // Changed from object-cover to object-contain
         />
       </div>
       
@@ -52,7 +53,7 @@ const Hero: React.FC = () => {
               </a>
             </div>
           </motion.div>
-         
+          
           <motion.div
             className="w-full md:w-1/2 flex justify-center logo-3d"
             initial={{ opacity: 0 }}
