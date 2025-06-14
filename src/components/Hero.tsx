@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 bg-gray-900">
         <img
-          src="/eyes.jpg"
+          src="/eyes.png"
           alt="Eagle Shoot Background"
           className="w-full h-full object-contain object-center" // Changed from object-cover to object-contain
         />
