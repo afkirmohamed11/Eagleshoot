@@ -10,13 +10,19 @@ const Hero: React.FC = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center hero-gradient w-full overflow-x-hidden"
       style={{ marginTop: 0, paddingTop: '4rem' }}
-    >
-      {/* Background Image */}
+    >      {/* Background Image */}
       <div className="absolute inset-0 bg-gray-900">
+        {/* Mobile version - eyes2.jpg */}
+        <img
+          src="/eyes2.jpg"
+          alt="Eagle Shoot Background"
+          className="w-full h-full object-cover object-center md:hidden"
+        />
+        {/* Desktop/Laptop version - eyes.png */}
         <img
           src="/eyes.png"
           alt="Eagle Shoot Background"
-          className="w-full h-full object-contain object-center" // Changed from object-cover to object-contain
+          className="hidden md:block w-full h-full object-contain object-center"
         />
       </div>
       
