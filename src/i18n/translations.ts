@@ -175,6 +175,8 @@ export const translations = {
 'portfolio.items.orange': 'Orange',
 'portfolio.items.flower': 'White Rose',
 'portfolio.items.concert': 'Music Concert',
+'portfolio.showMore': 'Show More',
+'portfolio.showLess': 'Show Less',
 
     // Activities Section
     'activities.title': 'Our Latest Activities',
@@ -343,6 +345,8 @@ export const translations = {
 'portfolio.items.orange': 'Orange',
 'portfolio.items.flower': 'Rose blanche',
 'portfolio.items.concert': 'Concert de Musique',
+'portfolio.showMore': 'Afficher plus',
+'portfolio.showLess': 'Afficher moins',
 
     // Activities Section
     'activities.title': 'Nos Dernières Activités',
@@ -525,9 +529,10 @@ export const translations = {
     'portfolio.items.mobadara': 'فعاليات الاحتفال بالذكرى 20 لإطلاق المبادرة الوطنية للتنمية البشرية',
     'portfolio.items.corporate':'افتتاح فضاء المبادرات الشبابية و النسائية بالحسيمة',    'portfolio.items.product': 'تصوير منتجات',
     'portfolio.items.owl': 'بومة',
-    'portfolio.items.orange': 'برتقال',
-    'portfolio.items.flower': 'وردة بيضاء',
+    'portfolio.items.orange': 'برتقال',    'portfolio.items.flower': 'وردة بيضاء',
     'portfolio.items.concert': 'حفل موسيقي',
+    'portfolio.showMore': 'عرض المزيد',
+    'portfolio.showLess': 'عرض أقل',
 
     // Activities Section
     'activities.title': 'أنشطتنا الأخيرة',

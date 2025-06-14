@@ -10,6 +10,7 @@ const Portfolio: React.FC = () => {
   });
 
   const [activeCategory, setActiveCategory] = useState('all');
+  const [showAll, setShowAll] = useState(false);
   const { t, language } = useLanguage();
 
   const categories = [
@@ -136,8 +137,11 @@ const Portfolio: React.FC = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeCategory);
 
+  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 8);
+  const shouldShowButton = filteredItems.length > 8;
+
   return (
-    <section id="portfolio" className="py-12 sm:py-20">
+    <section id="portfolio" className="py-12 sm:py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container">
         <div className="text-center mb-8 sm:mb-16">
           <h2 className="section-title">{t('portfolio.title')}</h2>
@@ -151,11 +155,14 @@ const Portfolio: React.FC = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => {
+                  setActiveCategory(category.id);
+                  setShowAll(false);
+                }}
                 className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors duration-300 text-sm sm:text-base ${
                   activeCategory === category.id
                     ? 'bg-primary text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                 }`}
               >
                 {category.name}
@@ -171,7 +178,7 @@ const Portfolio: React.FC = () => {
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {filteredItems.map((item) => (
+          {displayedItems.map((item) => (
             <motion.div
               key={item.id}
               className="gallery-item rounded-lg overflow-hidden shadow-lg"
@@ -196,6 +203,17 @@ const Portfolio: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {shouldShowButton && (
+          <div className="text-center mt-8 sm:mt-12">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-primary text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-primary/90 transition-colors duration-300 text-sm sm:text-base font-medium"
+            >
+              {showAll ? t('portfolio.showLess') : t('portfolio.showMore')}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

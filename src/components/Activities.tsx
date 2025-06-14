@@ -15,6 +15,7 @@ const Activities: React.FC = () => {
 
   // Exhibition images
   const exhibitionImages = [
+    '/hoceima7.jpg',
     '/hoceima6.jpg',
     '/hoceima2.jpg',
     '/hoceima3.jpg',
