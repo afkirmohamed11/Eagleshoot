@@ -38,7 +38,7 @@ const Portfolio: React.FC = () => {
     {
       id: 3,
       category: 'event',
-      image: '/event1.jpg',
+      image: '/events/event1.jpg',
       title: t('portfolio.items.corporate'),
     },
     {
@@ -50,37 +50,37 @@ const Portfolio: React.FC = () => {
     {
       id: 7,
       category: 'event',
-      image: '/event2.jpg',
+      image: '/events/event2.jpg',
       title: t('portfolio.items.corporate'),
     },
     {
       id: 16,
       category: 'event',
-      image: '/event3.jpg',
+      image: '/events/event3.jpg',
       title: t('portfolio.items.mobadara'),
     },
     {
       id: 17,
       category: 'event',
-      image: '/event4.jpg',
+      image: '/events/event4.jpg',
       title: t('portfolio.items.mobadara'),
     },
     {
       id: 18,
       category: 'event',
-      image: '/event5.jpg',
+      image: '/events/event5.jpg',
       title: t('portfolio.items.mobadara'),
     },
     {
       id: 19,
       category: 'event',
-      image: '/event6.jpg',
+      image: '/events/event6.jpg',
       title: t('portfolio.items.mobadara'),
     },
     {
       id: 20,
       category: 'event',
-      image: '/event7.jpg',
+      image: '/events/event7.jpg',
       title: t('portfolio.items.corporate'),
     },
     {
